@@ -2,9 +2,9 @@
 
 Voting System
 
-[![Build Status](https://travis-ci.org/Arquisoft/VotingSystem0.svg?branch=master)](https://travis-ci.org/Arquisoft/VotingSystem0)
-[![Codacy Badge](https://api.codacy.com/project/badge/grade/1733937c8c0d479eb7da3faec762fb5c)](https://www.codacy.com/app/jelabra/VotingSystem0)
-[![codecov.io](https://codecov.io/github/Arquisoft/VotingSystem0/coverage.svg?branch=master)](https://codecov.io/github/Arquisoft/VotingSystem0?branch=master)
+[![Build Status](https://travis-ci.org/Arquisoft/VotingSystem_1b.svg?branch=master)](https://travis-ci.org/Arquisoft/VotingSystem_1b)
+[![Codacy Badge](https://api.codacy.com/project/badge/grade/43ec857abe7d4b70a0cc93f6a4cc4364)](https://www.codacy.com/app/jelabra/VotingSystem_1b)
+[![codecov.io](https://codecov.io/github/Arquisoft/VotingSystem_1b/coverage.svg?branch=master)](https://codecov.io/github/Arquisoft/VotingSystem_1b?branch=master)
 
 
 # Authors
