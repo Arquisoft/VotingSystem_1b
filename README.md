@@ -10,6 +10,9 @@ Voting System
 # Authors
 
 * Jose Labra
+* Santiago Martín Agra - UO237040
+* David Sánchez Luis - UO237085
+* Xurxo García Vázquez - UO235241
 
 
 
