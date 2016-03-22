@@ -31,7 +31,7 @@ public class Main extends SpringBootServletInitializer {
     public ServletRegistrationBean servletRegistrationBean() {
         FacesServlet servlet = new FacesServlet();
         ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(servlet, "*.xhtml");
-       return servletRegistrationBean;
+        return servletRegistrationBean;
     }
     
 }
