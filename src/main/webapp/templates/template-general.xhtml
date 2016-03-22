@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:view locale="#{settings.locale}">
+	<h:head>
+		<title>#{msgs.tituloHead}</title>
+	</h:head>
+	<h:body>
+		<h:form id="form-cabecera">
+			<center>
+				<h1>#{msgs.tituloAplicacion1}</h1>
+				<br /> <br />
+				<h2>#{msgs.tituloAplicacion2}</h2>
+			</center>
+			<br />
+			<br />
+			<table border="5" align="center">
+				<tr>
+					<th class="title"><ui:insert name="titulo">#{msgs.tituloDefectoCabecera}</ui:insert>
+					</th>
+				</tr>
+			</table>
+			<p:menubar>
+				<p:submenu label="#{msgs.tituloOpciones}" icon="ui-icon-document">
+					<p:menuitem value="#{msgs.enlaceListado}"
+						action="#{controller.listado}" />
+					<p:separator />
+					<p:menuitem value="#{msgs.enlaceAlta}" action="alta"
+						actionListener="#{alumno.iniciaAlumno}" />
+				</p:submenu>
+				<p:submenu style="float:right" label="#{msgs.textoIdioma}"
+					icon="ui-icon-document">
+					<p:menuitem value="#{msgs.enlaceIdiomaES}"
+						actionListener="#{settings.setSpanish}" update="@all" />
+					<p:menuitem value="#{msgs.enlaceIdiomaEN}"
+						actionListener="#{settings.setEnglish}" update="@all" />
+				</p:submenu>
+
+			</p:menubar>
+		</h:form>
+		<h:form id="form-cuerpo">
+			<ui:insert name="cuerpo">#{msgs.tituloDefectoCuerpo}</ui:insert>
+		</h:form>
+		<h:form id="form-pie">
+			<ui:insert name="pie">#{msgs.tituloPie}</ui:insert>
+		</h:form>
+
+	</h:body>
+</f:view>
+</html>

@@ -21,15 +21,17 @@ public class Main extends SpringBootServletInitializer {
     }
     
     @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(Main.class);
+    protected SpringApplicationBuilder configure
+                  (SpringApplicationBuilder application) {
+      return application.sources(
+                  new Class[] { Main.class, Initializer.class});
     }
 
     @Bean
     public ServletRegistrationBean servletRegistrationBean() {
         FacesServlet servlet = new FacesServlet();
-        ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(servlet, "*.jsf");
-		return servletRegistrationBean;
+        ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(servlet, "*.xhtml");
+       return servletRegistrationBean;
     }
     
 }
