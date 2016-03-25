@@ -13,24 +13,21 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.boot.test.SpringApplicationContextLoader;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import es.uniovi.asw.util.SeleniumUtils;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = Main.class)
-@ContextConfiguration(classes = Main.class, loader = SpringApplicationContextLoader.class)
 @WebAppConfiguration
 @IntegrationTest
-public class TestMain {
+@RunWith(SpringJUnit4ClassRunner.class)
+@SpringApplicationConfiguration(classes = Main.class)
+public class PruebaSeleniumTest {
 
 	WebDriver driver;
 	List<WebElement> elementos = null;
 
-	public TestMain(){
+	public PruebaSeleniumTest(){
 	}
 
 	@Before
@@ -52,20 +49,16 @@ public class TestMain {
 		}
 
 	}
+	
 	@After
-	public void end() {
-		driver.quit();
+	public void close() throws Exception{
+		driver.close();
 	}
-
-
 
 	@Test
 	public void EjemploTest() throws InterruptedException {
 		
-		//Vamos a la vista de autocomplete
 		driver.get("http://localhost:8080/index.xhtml");
-
-		//Esperamos que aparezca el elemento themeCustom_input 
 		elementos = SeleniumUtils.EsperaCargaPagina(driver, "text", "Hola", 2); 
 
 	}
