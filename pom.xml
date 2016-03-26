@@ -111,7 +111,7 @@
 			<version>2.53.0</version>
 		</dependency>
 
-		<!-- JSF -->
+		<!-- JSF y PrimeFaces-->
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-jasper</artifactId>
@@ -123,25 +123,9 @@
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-core</artifactId>
-
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-api</artifactId>
 			<version>2.2.8-02</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-logging-juli</artifactId>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-jasper</artifactId>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
@@ -149,7 +133,6 @@
 			<artifactId>primefaces</artifactId>
 			<version>5.3</version>
 		</dependency>
-	
 	</dependencies>
 
 	<properties>
