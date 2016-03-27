@@ -13,7 +13,7 @@ public class Controlador
 	@RequestMapping(method = RequestMethod.GET)
 	public RedirectView localRedirect() {
 	    RedirectView redirectView = new RedirectView();
-	    redirectView.setUrl("http://localhost:8080/index.xhtml");
+	    redirectView.setUrl("./index.xhtml");
 	    return redirectView;
 	}
     
