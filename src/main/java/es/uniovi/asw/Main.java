@@ -14,14 +14,18 @@ import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.context.ServletContextAware;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.sun.faces.config.ConfigureListener;
 
 @Configuration
 @EnableAutoConfiguration
 @ComponentScan
+@Controller
 public class Main extends SpringBootServletInitializer implements ServletContextAware {
 
     public static void main(String[] args) {
@@ -33,9 +37,7 @@ public class Main extends SpringBootServletInitializer implements ServletContext
         ServletRegistrationBean registration = new ServletRegistrationBean(
                 new FacesServlet(), "*.xhtml");
         registration.setLoadOnStartup(1);
-        ArrayList<String> list = new ArrayList<>();
-        list.add("/"); //ya no da el error. Descubrir como redirigir a index?
-        registration.setUrlMappings(list);
+     
         return registration;
     }
 
