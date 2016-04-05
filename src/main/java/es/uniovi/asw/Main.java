@@ -1,6 +1,7 @@
 package es.uniovi.asw;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.faces.webapp.FacesServlet;
 import javax.servlet.ServletContext;
@@ -22,6 +23,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.sun.faces.config.ConfigureListener;
 
+import es.uniovi.asw.dbupdate.dto.VoterRepository;
+import es.uniovi.asw.dbupdate.dto.VoterServiceImpl;
+import es.uniovi.asw.dbupdate.model.Voter;
+
 @Configuration
 @EnableAutoConfiguration
 @ComponentScan
@@ -30,7 +35,12 @@ public class Main extends SpringBootServletInitializer implements ServletContext
 
     public static void main(String[] args) {
         SpringApplication.run(Main.class);
+        
+   
     }
+    
+    
+
 
     @Bean
     public ServletRegistrationBean facesServletRegistration() {
