@@ -1,21 +1,33 @@
 package es.uniovi.asw.dbupdate.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+
+
+//mapeamos la tabla como en hibernate
 
 @Entity
+@Table(name="USUARIOS")
 public class Voter {
 
 		@Id
 		@GeneratedValue(strategy=GenerationType.AUTO)
 		private Long id;
+		@Column(name="name")
 		private String nombre;
+		@Column(name="ename")
 		private String mail;
 		private String nif;
+		@Column(name="censusesinfo")
 		private String codigoColegio;
+		@Column(name="pass")
 		private String contrasena;
 		
 		protected Voter(){
