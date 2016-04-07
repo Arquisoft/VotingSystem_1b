@@ -5,11 +5,14 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
-
 <f:view>
-	<h:head>
-		<title>Título</title>
-	</h:head>
+	<h:form id="form-cabecera">
+		<h:head>
+				<center>
+					<ui:insert name="titulo">Título</ui:insert>
+				</center>
+		</h:head>
+	</h:form>
 	<h:body>
 		<h:form id="form-cuerpo">
 			<ui:insert name="cuerpo">Cuerpo</ui:insert>
