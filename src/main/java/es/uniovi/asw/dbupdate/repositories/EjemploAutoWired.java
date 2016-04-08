@@ -25,10 +25,10 @@ public class EjemploAutoWired {
 	 @RequestMapping("/magia")
 	public Iterable<User> magia(){
 		if(cosa!=null){
-			User user = new User("Pepe","","","");
+			//User user = new User("Pepe","","","");
 			
-			cosa.save(user);
-			otraCosa.save(new TelematicVoter(user, false));
+			//cosa.save(user);
+			//otraCosa.save(new TelematicVoter(user, false));
 			
 			//se imprime porque no es null
 			System.out.println("magia");
