@@ -5,12 +5,12 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import es.uniovi.asw.dbupdate.model.Voter;
+import es.uniovi.asw.dbupdate.model.User;
 
 
 @Repository
-public interface VoterDAO  extends CrudRepository<Voter, Long> { 
+public interface UserDAO  extends CrudRepository<User, Long> { 
 
-	   // public List<Voter> findByNombre(String nombre);
+	   public List<User> findByNombre(String nombre);
 	
 }

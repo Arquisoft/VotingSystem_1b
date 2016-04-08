@@ -1,14 +1,11 @@
 package es.uniovi.asw.dbupdate.repositories;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Configurable;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import es.uniovi.asw.dbupdate.model.Voter;
+import es.uniovi.asw.dbupdate.model.TelematicVoter;
+import es.uniovi.asw.dbupdate.model.User;
 
 //TODO: cambiar restcontroler por
 // controler normal
@@ -19,16 +16,24 @@ public class EjemploAutoWired {
 
 	//lo inicia el controlador automatico
 	@Autowired
-	private VoterDAO cosa;
+	private UserDAO cosa;
+	@Autowired
+	private TelematicVoterDAO otraCosa;
 	
 	//cuando se pide esto
 	//http://localhost:8080/magia
 	 @RequestMapping("/magia")
-	public Iterable<Voter> magia(){
+	public Iterable<User> magia(){
 		if(cosa!=null){
+			User user = new User("Pepe","","","");
+			
+			cosa.save(user);
+			otraCosa.save(new TelematicVoter(user, false));
+			
 			//se imprime porque no es null
 			System.out.println("magia");
 			System.out.println("Usuarios:"+cosa.count());
+			System.out.println("TelematicVoter"+otraCosa.count());
 		}
 		else{
 			System.out.println("mal");

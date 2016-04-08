@@ -1,21 +1,22 @@
 package es.uniovi.asw.dbupdate.model;
 
+import java.util.List;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
 
 //mapeamos la tabla como en hibernate
 
 @Entity
 @Table(name="USUARIOS")
-public class Voter {
+public class User {
 
 		@Id
 		@GeneratedValue(strategy=GenerationType.AUTO)
@@ -29,11 +30,13 @@ public class Voter {
 		private String codigoColegio;
 		@Column(name="pass")
 		private String contrasena;
+		@OneToMany(mappedBy="user")
+		private Set<TelematicVoter> telematicVote;
 		
-		protected Voter(){
+		protected User(){
 			
 		}
-		public Voter(String nombre, String mail, String nif, String codigoColegio){
+		public User(String nombre, String mail, String nif, String codigoColegio){
 			this.nombre=nombre;
 			this.mail=mail;
 			this.nif=nif;
@@ -66,6 +69,12 @@ public class Voter {
 		
 		public void setContrasena(String contrasena) {
 			this.contrasena=contrasena;
+		}
+		public Set<TelematicVoter> getTelematicVote() {
+			return telematicVote;
+		}
+		public void setTelematicVote(Set<TelematicVoter> telematicVote) {
+			this.telematicVote = telematicVote;
 		}
 
 
