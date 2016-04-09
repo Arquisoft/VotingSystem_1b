@@ -34,28 +34,19 @@ import es.uniovi.asw.dbupdate.repositories.EjemploAutoWired;
 @Controller
 @EnableJpaRepositories
 public class Main extends SpringBootServletInitializer implements ServletContextAware {
-
 	
     public static void main(String[] args) {
-        SpringApplication.run(Main.class);
-       
-   
+        SpringApplication.run(Main.class);   
     }
-    
-    
-
 
     @Bean
     public ServletRegistrationBean facesServletRegistration() {
         ServletRegistrationBean registration = new ServletRegistrationBean(
                 new FacesServlet(), "*.xhtml");
-        registration.setLoadOnStartup(1);
-     
+        registration.setLoadOnStartup(1);     
         return registration;
     }
 
-    
-    
     @Bean
     public ServletListenerRegistrationBean<ConfigureListener> jsfConfigureListener() {
         return new ServletListenerRegistrationBean<ConfigureListener>(
@@ -66,9 +57,6 @@ public class Main extends SpringBootServletInitializer implements ServletContext
     public void setServletContext(ServletContext servletContext) {
         servletContext.setInitParameter("com.sun.faces.forceLoadConfiguration", Boolean.TRUE.toString());
         servletContext.setInitParameter("primefaces.CLIENT_SIDE_VALIDATION", "true");
-        servletContext.setInitParameter("javax.faces.PROJECT_STAGE", "Development");
-        
+        servletContext.setInitParameter("javax.faces.PROJECT_STAGE", "Development");        
     }
-    
- 
 }
