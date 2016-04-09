@@ -1,6 +1,7 @@
 package es.uniovi.asw.beans;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 
@@ -11,17 +12,17 @@ import javax.faces.context.FacesContext;
 
 import es.uniovi.asw.dbupdate.exception.NotPersistedException;
 import es.uniovi.asw.dbupdate.model.User;
-
+import es.uniovi.asw.dbupdate.repositories.UserDAO;
+						/*PARA PROBAR*/
 @ManagedBean(name = "user")
 @SessionScoped 
 public class BeanUser extends User implements Serializable {
-	private static final long serialVersionUID = 6L;
+/*	private static final long serialVersionUID = 6L;
 	
-	public String verify() throws NotPersistedException {
+	public String login() throws NotPersistedException {
 //		UserService us = Factories.services.createUserService();
-//		User user = us.verify(getLogin(), getPassword());
+		User user = null; //us.verify(getLogin(), getPassword());
 		FacesContext fc = FacesContext.getCurrentInstance();	
-		User user = null;
 		if (user != null) {    
 			putUserInSession(user);
 			fc.addMessage("laInfo", new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Ha iniciado sesión correctamente."));
@@ -37,6 +38,6 @@ public class BeanUser extends User implements Serializable {
 				.getExternalContext()     
 				.getSessionMap();      
 		session.put("LOGGEDIN_USER", user); 
-		}   
+		}   */
 }
 	

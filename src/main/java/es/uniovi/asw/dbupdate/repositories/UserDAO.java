@@ -12,5 +12,7 @@ import es.uniovi.asw.dbupdate.model.User;
 public interface UserDAO  extends CrudRepository<User, Long> { 
 
 	   public List<User> findByNombre(String nombre);
+	   
+	  // public List<User> findByLoginAndPassword(String login, String password);
 	
 }
