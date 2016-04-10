@@ -116,7 +116,7 @@
 			<version>2.53.0</version>
 		</dependency>
 
-		<!-- JSF y PrimeFaces -->
+		<!-- JSF, PrimeFaces y BootFaces -->
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-jasper</artifactId>
@@ -137,6 +137,12 @@
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
 			<version>5.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.bootsfaces</groupId>
+			<artifactId>bootsfaces</artifactId>
+			<version>0.8.0</version>
 		</dependency>
 	</dependencies>
 
