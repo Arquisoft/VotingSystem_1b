@@ -19,17 +19,19 @@ public class Configuration {
 	private Long id;
 	private Date horaInicio;
 	private Date horaFin;
-	//List<String> opciones;
+	//private List<ElementoVotable> opcionesVoto;
+
 	//List<Colegio> colegios;
-	//Tipo de elecciones?
+	private boolean votoMultiple;
 	
 	protected Configuration(){
 		
 	}
 	
-	public Configuration(Date horaInicio, Date horaFin, List<String> opciones, List<Colegio> colegios){
+	public Configuration(Date horaInicio, Date horaFin, List<String> opciones, List<Colegio> colegios, List<ElementoVotable> opcionesVoto, boolean votoMultiple){
 		this.setHoraInicio(horaInicio);
 		this.setHoraFin(horaFin);
+		//this.opcionesVoto=opcionesVoto;
 		//this.opciones=opciones;
 		//this.colegios=colegios;
 	}
