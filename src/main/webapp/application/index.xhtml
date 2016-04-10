@@ -9,7 +9,6 @@
 		VoteApplication
 	</ui:define>
 	<ui:define name="cuerpo">
-		<h:form id="voteApplicationForm">
 			<b:container layout="fluid">
 				<b:row>
 				    <b:column span="4" offset="4">
@@ -32,13 +31,11 @@
 			         	<b:commandButton 
 			         		value="Solicitar voto telematico" 
 			         		actionListener="#{voteApplication.apply()}"
-			         		update="voteApplicationForm" 
 			         		look="primary" 
 			         		style="width:100%" 
 			         	/>
 			        </b:column>
 			    </b:row>
 			</b:container>
-		</h:form>
 	</ui:define>
 </ui:composition>
