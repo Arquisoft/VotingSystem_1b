@@ -10,7 +10,7 @@ import javax.persistence.Id;
 
 
 public class Colegio {
-	private Long id;
+	
 	private String codigo;
 	
 	protected Colegio(){
