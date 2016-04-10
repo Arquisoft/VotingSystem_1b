@@ -19,17 +19,21 @@ public class Configuration {
 		private Date horaFin;
 		List<String> opciones;
 		List<Colegio> colegios;
-		//Tipo de elecciones?
+		private boolean multiple;
+		List<ElementoVotable> posiblesVotantes;
 		
 		protected Configuration(){
 			
 		}
 		
-		public Configuration(Date horaInicio, Date horaFin, List<String> opciones, List<Colegio> colegios){
+		public Configuration(Date horaInicio, Date horaFin, List<String> opciones, List<Colegio> colegios, boolean mltiple
+				, List<ElementoVotable> posiblesVotantes){
 			this.horaInicio=horaInicio;
 			this.horaFin=horaFin;
 			this.opciones=opciones;
 			this.colegios=colegios;
+			this.multiple=mltiple;
+			this.posiblesVotantes=posiblesVotantes;
 		}
 		
 	}

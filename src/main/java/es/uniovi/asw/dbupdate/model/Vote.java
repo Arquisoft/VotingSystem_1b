@@ -16,13 +16,13 @@ public class Vote {
 		private Long id;
 		private Date fecha;
 		private String codigoColegio;
-		private String opcion;
+		private OpcionVoto opcion;
 		
 		protected Vote(){
 			
 		}
 		
-		public Vote(Date fecha, String codigoColegio, String opcion){
+		public Vote(Date fecha, String codigoColegio, OpcionVoto opcion){
 			this.fecha=fecha;
 			this.codigoColegio=codigoColegio;
 			this.opcion=opcion;
@@ -36,7 +36,7 @@ public class Vote {
 			return codigoColegio;
 		}
 
-		public String getOpcion() {
+		public OpcionVoto getOpcion() {
 			return opcion;
 		}
 		
