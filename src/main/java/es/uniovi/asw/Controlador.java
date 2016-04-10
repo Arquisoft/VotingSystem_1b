@@ -21,6 +21,9 @@ public class Controlador{
 	    else{
 		    redirectView.setUrl("/vote/index.xhtml");
 	    }
+	    
+		votacionIniciada = !votacionIniciada;
+
 	    return redirectView;
 	}
     
