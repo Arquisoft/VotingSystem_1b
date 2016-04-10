@@ -6,9 +6,9 @@
 
 
 	<managed-bean>
-		<managed-bean-name>test</managed-bean-name>
+		<managed-bean-name>voteApplication</managed-bean-name>
 		<managed-bean-class>
-			es.uniovi.asw.beans.Test
+			es.uniovi.asw.voteApplication.beans.BeanApplication
 		</managed-bean-class>
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>

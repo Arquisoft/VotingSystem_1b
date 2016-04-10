@@ -47,7 +47,6 @@ public class Main extends SpringBootServletInitializer implements ServletContext
         return registration;
     }
 
-
     @Override
     public void setServletContext(ServletContext servletContext) {
         servletContext.setInitParameter("com.sun.faces.forceLoadConfiguration", Boolean.TRUE.toString());
