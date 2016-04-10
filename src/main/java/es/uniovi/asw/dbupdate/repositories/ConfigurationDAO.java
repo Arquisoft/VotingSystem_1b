@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import es.uniovi.asw.dbupdate.model.Configuration;
 
 
-//@Repository TODO cambiar esto
+@Repository 
 public interface ConfigurationDAO  extends CrudRepository<Configuration, Long> { 
 	
 }

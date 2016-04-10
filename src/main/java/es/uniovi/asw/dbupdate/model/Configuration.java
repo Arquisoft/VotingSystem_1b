@@ -18,7 +18,7 @@ public class Configuration {
 	private Long id;
 	private Date horaInicio;
 	private Date horaFin;
-	private Set<ElementoVotable> opcionesVoto;
+	//private Set<ElementoVotable> opcionesVoto;
 
 	//List<Colegio> colegios;
 	private boolean votoMultiple;
@@ -31,7 +31,7 @@ public class Configuration {
 		this.setHoraInicio(horaInicio);
 		this.setHoraFin(horaFin);
 		this.votoMultiple=votoMultiple;
-		this.opcionesVoto=opcionesVoto;
+		//this.opcionesVoto=opcionesVoto;
 	
 	}
 
