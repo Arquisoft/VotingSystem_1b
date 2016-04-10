@@ -20,6 +20,9 @@ public class Vote {
 	private String codigoColegio;
 	private String opcion;
 	
+	
+	//	private OpcionesVoto opcionVoto; TODO ayuda al meter esto aqui
+	
 	protected Vote(){
 		
 	}
