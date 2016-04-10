@@ -47,12 +47,6 @@ public class Main extends SpringBootServletInitializer implements ServletContext
         return registration;
     }
 
-    @Bean
-    public ServletListenerRegistrationBean<ConfigureListener> jsfConfigureListener() {
-        return new ServletListenerRegistrationBean<ConfigureListener>(
-                new ConfigureListener());
-    }
-
     @Override
     public void setServletContext(ServletContext servletContext) {
         servletContext.setInitParameter("com.sun.faces.forceLoadConfiguration", Boolean.TRUE.toString());
