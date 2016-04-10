@@ -5,13 +5,21 @@
 	xmlns:p="http://primefaces.org/ui">
 	<p:panelGrid id="Grid" columns="2" cellpadding="5">
 		<h:panelGroup>
-		<p:outputLabel for="restricted" value="Día de elecciones:" />
-        <p:calendar id="restricted" mindate="10/3/16" maxdate="10/3/16" 
+		<p:outputLabel for="fecha" value="Día de elecciones:" />
+        <p:calendar id="fecha" mindate="10/3/16" maxdate="10/3/16"
+        value="#{configuration.horaInicio}" 
+        required="true" requiredMessage="Debe indicar una fecha" />
+			<p:message for="fecha" />
+		</h:panelGroup>
+		<h:panelGroup>
+		<p:outputLabel for="fecha" value="Día de elecciones:" />
+        <p:calendar id="fecha" mindate="10/3/16" maxdate="10/3/16"
+        value="#{configuration.horaInicio}" 
         required="true" requiredMessage="Debe indicar una fecha" />
 			<p:message for="fecha" />
 		</h:panelGroup>
   
-		<p:commandButton value="Validar"
+		<p:commandButton value="Validar" action="#{configuration.configura}"
 			update="Grid" process="@form">
 		</p:commandButton>
 	</p:panelGrid>
