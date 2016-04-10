@@ -3,6 +3,7 @@ package es.uniovi.asw.dbupdate.model;
 import java.sql.Time;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,30 +11,28 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="CONFIGURACION")
+
 public class Configuration {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+
 	private Long id;
 	private Date horaInicio;
 	private Date horaFin;
-	//private List<ElementoVotable> opcionesVoto;
+	//private Set<ElementoVotable> opcionesVoto;
 
 	//List<Colegio> colegios;
-	private boolean votoMultiple;
+	//private boolean votoMultiple;
 	
 	protected Configuration(){
 		
 	}
 	
-	public Configuration(Date horaInicio, Date horaFin, List<String> opciones, List<Colegio> colegios, List<ElementoVotable> opcionesVoto, boolean votoMultiple){
+	public Configuration(Date horaInicio, Date horaFin, List<String> opciones, Set<ElementoVotable> opcionesVoto, boolean votoMultiple){
 		this.setHoraInicio(horaInicio);
 		this.setHoraFin(horaFin);
+		//this.votoMultiple=votoMultiple;
 		//this.opcionesVoto=opcionesVoto;
-		//this.opciones=opciones;
-		//this.colegios=colegios;
+	
 	}
 
 	public Date getHoraInicio() {
