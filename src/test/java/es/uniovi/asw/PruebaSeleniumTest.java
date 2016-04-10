@@ -62,5 +62,16 @@ public class PruebaSeleniumTest {
 		elementos = SeleniumUtils.EsperaCargaPagina(driver, "text", "Hola", 2); 
 
 	}
+	
+	@Test
+	public void EjemploCambioIndex() throws InterruptedException {
+		
+		driver.get("http://localhost:8080/");
+		SeleniumUtils.EsperaCargaPagina(driver, "text", "VoterVote", 2); 
+		driver.get("http://localhost:8080/");
+		SeleniumUtils.EsperaCargaPagina(driver, "text", "VoteApplication", 2); 
+		
+
+	}
 
 }
