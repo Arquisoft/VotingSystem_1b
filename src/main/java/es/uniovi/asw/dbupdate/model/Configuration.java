@@ -14,25 +14,28 @@ import javax.persistence.Table;
 @Table(name="CONFIGURACION")
 public class Configuration {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
-	private Date horaInicio;
-	private Date horaFin;
-	//List<String> opciones;
-	//List<Colegio> colegios;
-	//Tipo de elecciones?
-	
-	protected Configuration(){
+
+		private Long id;
+		private Date horaInicio;
+		private Date horaFin;
+		List<String> opciones;
+		List<Colegio> colegios;
+		private boolean multiple;
+		List<ElementoVotable> posiblesVotantes;
 		
-	}
-	
-	public Configuration(Date horaInicio, Date horaFin, List<String> opciones, List<Colegio> colegios){
-		this.setHoraInicio(horaInicio);
-		this.setHoraFin(horaFin);
-		//this.opciones=opciones;
-		//this.colegios=colegios;
-	}
+		protected Configuration(){
+			
+		}
+		
+		public Configuration(Date horaInicio, Date horaFin, List<String> opciones, List<Colegio> colegios, boolean mltiple
+				, List<ElementoVotable> posiblesVotantes){
+			this.horaInicio=horaInicio;
+			this.horaFin=horaFin;
+			this.opciones=opciones;
+			this.colegios=colegios;
+			this.multiple=mltiple;
+			this.posiblesVotantes=posiblesVotantes;
+		}
 
 	public Date getHoraInicio() {
 		return horaInicio;
