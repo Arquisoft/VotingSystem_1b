@@ -21,7 +21,7 @@ public class Configuration {
 	//private Set<ElementoVotable> opcionesVoto;
 
 	//List<Colegio> colegios;
-	private boolean votoMultiple;
+	//private boolean votoMultiple;
 	
 	protected Configuration(){
 		
@@ -30,7 +30,7 @@ public class Configuration {
 	public Configuration(Date horaInicio, Date horaFin, List<String> opciones, Set<ElementoVotable> opcionesVoto, boolean votoMultiple){
 		this.setHoraInicio(horaInicio);
 		this.setHoraFin(horaFin);
-		this.votoMultiple=votoMultiple;
+		//this.votoMultiple=votoMultiple;
 		//this.opcionesVoto=opcionesVoto;
 	
 	}
