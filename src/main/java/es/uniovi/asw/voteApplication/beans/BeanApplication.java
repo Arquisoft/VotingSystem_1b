@@ -1,4 +1,4 @@
-package es.uniovi.asw.voteApplication.presentation;
+package es.uniovi.asw.voteApplication.beans;
 
 import javax.faces.bean.ManagedBean;
 
