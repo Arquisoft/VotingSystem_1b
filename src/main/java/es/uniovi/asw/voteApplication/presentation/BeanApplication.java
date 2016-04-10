@@ -2,7 +2,7 @@ package es.uniovi.asw.voteApplication.presentation;
 
 import javax.faces.bean.ManagedBean;
 
-@ManagedBean(name="application")
+@ManagedBean(name="voteApplication")
 public class BeanApplication {
 	
 	private String email;
@@ -19,6 +19,11 @@ public class BeanApplication {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public String apply(){
+		System.out.println(email + "·" + password);
+		return null;
 	}
 
 }
