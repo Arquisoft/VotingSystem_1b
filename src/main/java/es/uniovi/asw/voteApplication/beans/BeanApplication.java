@@ -1,8 +1,14 @@
 package es.uniovi.asw.voteApplication.beans;
 
-import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 
-@ManagedBean(name="voteApplication")
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.jsf.FacesContextUtils;
+
+import es.uniovi.asw.voteApplication.bussiness.impl.SimpleApplicationService;
+
+@Component
 public class BeanApplication {
 	
 	private String email;
@@ -22,7 +28,11 @@ public class BeanApplication {
 	}
 	
 	public String apply(){
+		WebApplicationContext ctx =  FacesContextUtils.getWebApplicationContext(FacesContext.getCurrentInstance());
+		SimpleApplicationService sas = ctx.getBean(SimpleApplicationService.class);
+		
 		System.out.println(email + "·" + password);
+		sas.saveApplication(email, password);
 		return null;
 	}
 
