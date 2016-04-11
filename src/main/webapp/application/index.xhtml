@@ -10,6 +10,7 @@
 	</ui:define>
 	<ui:define name="cuerpo">
 			<b:container layout="fluid">
+				<h:message for=""/>
 				<b:row>
 				    <b:column span="4" offset="4">
 				    	<b:inputText placeholder="Correo electronico" required="true" id="email" value="#{voteApplication.email}">
@@ -29,6 +30,7 @@
 				<b:row>
 			        <b:column span="4" offset="4">
 			         	<b:commandButton 
+			         		id="solicitar"
 			         		value="Solicitar voto telematico" 
 			         		actionListener="#{voteApplication.apply()}"
 			         		look="primary" 

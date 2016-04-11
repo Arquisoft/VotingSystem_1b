@@ -8,33 +8,28 @@ import es.uniovi.asw.dbupdate.model.User;
 import es.uniovi.asw.dbupdate.repositories.TelematicVoterDAO;
 import es.uniovi.asw.dbupdate.repositories.UserDAO;
 import es.uniovi.asw.voteApplication.bussiness.ApplicationService;
+import es.uniovi.asw.voteApplication.exception.InvalidUserException;
 
 @Component
 public class SimpleApplicationService implements ApplicationService {
-	
+
 	@Autowired(required=true)
 	private UserDAO ud;
 	@Autowired(required=true)
 	private TelematicVoterDAO td;
 
 	@Override
-	public String saveApplication(String email, String password) {
-				
-		if(ud == null){
-			System.out.println("mal rollo");
+	public void saveApplication(String email, String password) throws InvalidUserException {
+
+		User user = ud.findByMailAndContrasena(email, password);
+
+		if(user == null){
+			throw new InvalidUserException();
 		}
-		else{
-			System.out.println("buen rollo");
-			User user = ud.findByMailAndContrasena(email, password);
-			
-			if(user == null){
-			}
-			
-			TelematicVoter telematic = new TelematicVoter(user, false);
-			td.save(telematic);
-			
-		}
-		return "Exito";
+
+		TelematicVoter telematic = new TelematicVoter(user, false);
+		td.save(telematic);
+
 	}
 
 }
