@@ -14,6 +14,14 @@
 	</managed-bean>
 
 
+	<managed-bean>
+		<managed-bean-name>configuration</managed-bean-name>
+		<managed-bean-class>
+			es.uniovi.asw.configuration.beans.BeanConfiguration
+		</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+
 	<application>
 		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver
 		</el-resolver>
@@ -26,4 +34,3 @@
 
 
 </faces-config>
-
