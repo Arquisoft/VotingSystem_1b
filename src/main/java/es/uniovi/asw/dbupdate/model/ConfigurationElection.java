@@ -1,6 +1,5 @@
 package es.uniovi.asw.dbupdate.model;
 
-import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 
@@ -8,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,43 +17,111 @@ public class ConfigurationElection {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
-	private String nombreEleccion;
-	private String descripcion;
-	private Date horaInicio;
-	private Date horaFin;
-	//private List<ElementoVotable> opcionesVoto;
+	private String name;
+	private String description;
+	private Date applicationStart;
+	private Date applicationEnd;
+	private Date votationStart;
+	private Date votationEnd;
+	@ManyToOne
+	private List<VotableOption> votableOptions;
+	@ManyToOne
+	private List<ElectoralCollege> electoralColleges;
+	private boolean multipleVoting;
 
-	//List<Colegio> colegios;
-	private boolean votoMultiple;
+	ConfigurationElection(){
+
+	}
 	
-	protected ConfigurationElection(){
+	public ConfigurationElection(String name, String description,
+			Date applicationStart, Date applicationEnd, Date votationStart,
+			Date votationEnd, List<VotableOption> votableOptions,
+			List<ElectoralCollege> electoralColleges, boolean multipleVoting) {
+		
+		super();
+		this.name = name;
+		this.description = description;
+		this.applicationStart = applicationStart;
+		this.applicationEnd = applicationEnd;
+		this.votationStart = votationStart;
+		this.votationEnd = votationEnd;
+		this.votableOptions = votableOptions;
+		this.electoralColleges = electoralColleges;
+		this.multipleVoting = multipleVoting;
 		
 	}
-	
-	public ConfigurationElection(String nombre, String descripcion, Date horaInicio, Date horaFin, List<String> opciones, List<ElectoralCollege> colegios, List<VotableOption> opcionesVoto, boolean votoMultiple){
-		this.nombreEleccion=nombre;
-		this.descripcion=descripcion;
-		this.setHoraInicio(horaInicio);
-		this.setHoraFin(horaFin);
-		//this.opcionesVoto=opcionesVoto;
-		//this.opciones=opciones;
-		//this.colegios=colegios;
+
+	public String getName() {
+		return name;
 	}
 
-	public Date getHoraInicio() {
-		return horaInicio;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public void setHoraInicio(Date horaInicio) {
-		this.horaInicio = horaInicio;
+	public String getDescription() {
+		return description;
 	}
 
-	public Date getHoraFin() {
-		return horaFin;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
-	public void setHoraFin(Date horaFin) {
-		this.horaFin = horaFin;
+	public Date getApplicationStart() {
+		return applicationStart;
 	}
-		
+
+	public void setApplicationStart(Date applicationStart) {
+		this.applicationStart = applicationStart;
 	}
+
+	public Date getApplicationEnd() {
+		return applicationEnd;
+	}
+
+	public void setApplicationEnd(Date applicationEnd) {
+		this.applicationEnd = applicationEnd;
+	}
+
+	public Date getVotationStart() {
+		return votationStart;
+	}
+
+	public void setVotationStart(Date votationStart) {
+		this.votationStart = votationStart;
+	}
+
+	public Date getVotationEnd() {
+		return votationEnd;
+	}
+
+	public void setVotationEnd(Date votationEnd) {
+		this.votationEnd = votationEnd;
+	}
+
+	public List<VotableOption> getVotableOptions() {
+		return votableOptions;
+	}
+
+	public void setVotableOptions(List<VotableOption> votableOptions) {
+		this.votableOptions = votableOptions;
+	}
+
+	public List<ElectoralCollege> getElectoralColleges() {
+		return electoralColleges;
+	}
+
+	public void setElectoralColleges(List<ElectoralCollege> electoralColleges) {
+		this.electoralColleges = electoralColleges;
+	}
+
+	public boolean isMultipleVoting() {
+		return multipleVoting;
+	}
+
+	public void setMultipleVoting(boolean multipleVoting) {
+		this.multipleVoting = multipleVoting;
+	}
+
+
+}

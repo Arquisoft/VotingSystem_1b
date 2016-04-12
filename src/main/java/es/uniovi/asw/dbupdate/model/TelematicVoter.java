@@ -17,24 +17,16 @@ public class TelematicVoter {
 	@ManyToOne
 	private User user;
 	private boolean voted;
-	private Long idVotacion;
+	private ConfigurationElection configurationElection;
 	
 	TelematicVoter(){ }
-
-	public TelematicVoter(User user, boolean voted, Long idvotaciNO) {
+	
+	public TelematicVoter(User user, boolean voted,
+			ConfigurationElection configurationElection) {
 		super();
 		this.user = user;
 		this.voted = voted;
-		this.idVotacion=idvotaciNO;
-		user.addTelematicvoterToSet(this);
-	}
-
-	public Long getIdVotacion() {
-		return idVotacion;
-	}
-
-	public Long getId() {
-		return id;
+		this.configurationElection = configurationElection;
 	}
 
 	public User getUser() {
@@ -52,5 +44,15 @@ public class TelematicVoter {
 	public void setVoted(boolean voted) {
 		this.voted = voted;
 	}
+
+	public ConfigurationElection getConfigurationElection() {
+		return configurationElection;
+	}
+
+	public void setConfigurationElection(ConfigurationElection configurationElection) {
+		this.configurationElection = configurationElection;
+	}
+	
+	
 
 }

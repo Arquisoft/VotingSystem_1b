@@ -18,12 +18,31 @@ public class Vote {
 	private Long id;
 	private Date fecha;
 	private ElectoralCollege colegio;
-	private VotableOption  elementoVotable;
+	private VotableOption elementoVotable;
 	private int cantidad;
-	
-	
-	//	private OpcionesVoto opcionVoto; TODO ayuda al meter esto aqui
-	
+
+	Vote(){ }
+
+	public Vote(Date fecha, ElectoralCollege codigoColegio,
+			VotableOption idElementoVotable, int cantidad){
+		this.fecha=fecha;
+		this.colegio=codigoColegio;
+		this.elementoVotable=idElementoVotable;
+		this.setCantidad(cantidad);
+	}
+
+	public Date getFecha() {
+		return fecha;
+	}
+
+	public ElectoralCollege getIDCodigoColegio() {
+		return colegio;
+	}
+
+	public VotableOption getIDOpcion() {
+		return elementoVotable;
+	}
+
 	public int getCantidad() {
 		return cantidad;
 	}
@@ -32,28 +51,4 @@ public class Vote {
 		this.cantidad = cantidad;
 	}
 
-	protected Vote(){
-		
-	}
-	
-	public Vote(Date fecha, ElectoralCollege codigoColegio,
-			VotableOption idElementoVotable, int cantidad){
-		this.fecha=fecha;
-		this.colegio=codigoColegio;
-		this.elementoVotable=idElementoVotable;
-		this.cantidad=cantidad;
-	}
-
-	public Date getFecha() {
-		return fecha;
-	}
-	
-	public ElectoralCollege getIDCodigoColegio() {
-		return colegio;
-	}
-
-	public VotableOption getIDOpcion() {
-		return elementoVotable;
-	}
-		
-	}
+}

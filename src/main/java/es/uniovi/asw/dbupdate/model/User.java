@@ -1,7 +1,6 @@
 package es.uniovi.asw.dbupdate.model;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -11,11 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-
-
-
-//mapeamos la tabla como en hibernate
 
 @Entity
 @Table(name="USUARIOS")
