@@ -20,14 +20,15 @@ public class Vote {
 	private String codigoColegio;
 	private String opcion;
 	
-	
-	//	private OpcionesVoto opcionVoto; TODO ayuda al meter esto aqui
+
+//	private OpcionesVoto opcionVoto; //TODO ayuda al meter esto aqui
 	
 	protected Vote(){
 		
 	}
 	
 	public Vote(Date fecha, String codigoColegio, String opcion){
+		//private OpcionesVoto opcionVoto;
 		this.fecha=fecha;
 		this.codigoColegio=codigoColegio;
 		this.opcion=opcion;
