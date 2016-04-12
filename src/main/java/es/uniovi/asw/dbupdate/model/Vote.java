@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -17,8 +18,10 @@ public class Vote {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private Date fecha;
-//	private ElectoralCollege colegio;
-//	private VotableOption elementoVotable;
+	@ManyToOne
+	private ElectoralCollege colegio;
+	@ManyToOne
+	private VotableOption elementoVotable;
 	private int cantidad;
 
 	Vote(){ }
@@ -26,8 +29,8 @@ public class Vote {
 	public Vote(Date fecha, ElectoralCollege codigoColegio,
 			VotableOption idElementoVotable, int cantidad){
 		this.fecha=fecha;
-//		this.colegio=codigoColegio;
-//		this.elementoVotable=idElementoVotable;
+		this.colegio=codigoColegio;
+		this.elementoVotable=idElementoVotable;
 		this.setCantidad(cantidad);
 	}
 
@@ -35,13 +38,13 @@ public class Vote {
 		return fecha;
 	}
 
-//	public ElectoralCollege getIDCodigoColegio() {
-//		return colegio;
-//	}
-//
-//	public VotableOption getIDOpcion() {
-//		return elementoVotable;
-//	}
+	public ElectoralCollege getIDCodigoColegio() {
+		return colegio;
+	}
+
+	public VotableOption getIDOpcion() {
+		return elementoVotable;
+	}
 
 	public int getCantidad() {
 		return cantidad;
