@@ -27,8 +27,8 @@ public class SimpleApplicationService implements ApplicationService {
 			throw new InvalidUserException();
 		}
 
-		TelematicVoter telematic = new TelematicVoter(user, false);
-		td.save(telematic);
+		//TelematicVoter telematic = new TelematicVoter(user, false);
+		//td.save(telematic);
 
 	}
 

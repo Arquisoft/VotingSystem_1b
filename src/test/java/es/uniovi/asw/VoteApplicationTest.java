@@ -27,6 +27,7 @@ import es.uniovi.asw.util.SeleniumUtils;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Main.class)
 public class VoteApplicationTest {
+	/*
 	
 	WebDriver driver;
 	@Autowired
@@ -103,5 +104,6 @@ public class VoteApplicationTest {
 		elemento.click();
 		
 	}
+	*/
 
 }

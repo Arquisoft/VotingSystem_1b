@@ -1,5 +1,6 @@
 package es.uniovi.asw.dbupdate.model;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -10,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+
 
 
 //mapeamos la tabla como en hibernate
@@ -41,6 +44,7 @@ public class User {
 			this.mail=mail;
 			this.nif=nif;
 			this.codigoColegio=codigoColegio;
+			telematicVote= new HashSet<TelematicVoter>();
 			
 		}
 
@@ -76,6 +80,9 @@ public class User {
 		public void setTelematicVote(Set<TelematicVoter> telematicVote) {
 			this.telematicVote = telematicVote;
 		}
-
+		
+		public void addTelematicvoterToSet(TelematicVoter tmad){
+			telematicVote.add(tmad);
+		}
 
 	}
