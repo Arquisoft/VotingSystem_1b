@@ -1,6 +1,6 @@
 package es.uniovi.asw.dbupdate.model;
 
-public class ElementoVotable {
+public class VotableOption {
 
 	
 	private String nombre;
@@ -18,7 +18,7 @@ public class ElementoVotable {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	public ElementoVotable(String nombre, String descripcion) {
+	public VotableOption(String nombre, String descripcion) {
 		super();
 		this.nombre = nombre;
 		this.descripcion = descripcion;

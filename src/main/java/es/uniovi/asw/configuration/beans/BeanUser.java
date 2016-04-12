@@ -5,8 +5,8 @@ import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import es.uniovi.asw.dbupdate.model.Eleccion;
-import es.uniovi.asw.dbupdate.model.OpcionesVoto;
+import es.uniovi.asw.dbupdate.model.ConfigurationElection;
+import es.uniovi.asw.dbupdate.model.Vote;
 
 @ManagedBean(name = "votante")
 @SessionScoped
@@ -53,7 +53,7 @@ public class BeanUser implements Serializable{
 	
 	
 	
-	public String votar(Eleccion el, OpcionesVoto susOpciones){
+	public String votar(ConfigurationElection el, Vote susOpciones){
 		
 		//llamar a dbupdate para votar ^
 		return "exito";

@@ -12,11 +12,13 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="CONFIGURACION")
-public class Configuration {
+public class ConfigurationElection {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
+	private String nombreEleccion;
+	private String descripcion;
 	private Date horaInicio;
 	private Date horaFin;
 	//private List<ElementoVotable> opcionesVoto;
@@ -24,11 +26,13 @@ public class Configuration {
 	//List<Colegio> colegios;
 	private boolean votoMultiple;
 	
-	protected Configuration(){
+	protected ConfigurationElection(){
 		
 	}
 	
-	public Configuration(Date horaInicio, Date horaFin, List<String> opciones, List<Colegio> colegios, List<ElementoVotable> opcionesVoto, boolean votoMultiple){
+	public ConfigurationElection(String nombre, String descripcion, Date horaInicio, Date horaFin, List<String> opciones, List<ElectoralCollege> colegios, List<VotableOption> opcionesVoto, boolean votoMultiple){
+		this.nombreEleccion=nombre;
+		this.descripcion=descripcion;
 		this.setHoraInicio(horaInicio);
 		this.setHoraFin(horaFin);
 		//this.opcionesVoto=opcionesVoto;

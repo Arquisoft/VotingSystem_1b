@@ -9,15 +9,16 @@ import javax.persistence.Id;
 
 
 
-public class Colegio {
+public class ElectoralCollege {
 	
+	private Long id;
 	private String codigo;
 	
-	protected Colegio(){
+	protected ElectoralCollege(){
 		
 	}
 	
-	public Colegio(String codigo){
+	public ElectoralCollege(String codigo){
 		this.codigo=codigo;
 	}
 

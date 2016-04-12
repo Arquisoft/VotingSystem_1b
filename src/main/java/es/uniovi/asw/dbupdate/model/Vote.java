@@ -17,32 +17,43 @@ public class Vote {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private Date fecha;
-	private String codigoColegio;
-	private String opcion;
+	private ElectoralCollege colegio;
+	private VotableOption  elementoVotable;
+	private int cantidad;
 	
 	
 	//	private OpcionesVoto opcionVoto; TODO ayuda al meter esto aqui
 	
+	public int getCantidad() {
+		return cantidad;
+	}
+
+	public void setCantidad(int cantidad) {
+		this.cantidad = cantidad;
+	}
+
 	protected Vote(){
 		
 	}
 	
-	public Vote(Date fecha, String codigoColegio, String opcion){
+	public Vote(Date fecha, ElectoralCollege codigoColegio,
+			VotableOption idElementoVotable, int cantidad){
 		this.fecha=fecha;
-		this.codigoColegio=codigoColegio;
-		this.opcion=opcion;
+		this.colegio=codigoColegio;
+		this.elementoVotable=idElementoVotable;
+		this.cantidad=cantidad;
 	}
 
 	public Date getFecha() {
 		return fecha;
 	}
 	
-	public String getCodigoColegio() {
-		return codigoColegio;
+	public ElectoralCollege getIDCodigoColegio() {
+		return colegio;
 	}
 
-	public String getOpcion() {
-		return opcion;
+	public VotableOption getIDOpcion() {
+		return elementoVotable;
 	}
 		
 	}

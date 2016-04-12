@@ -9,10 +9,10 @@ import javax.faces.context.FacesContext;
 
 import es.uniovi.asw.configuration.business.ConfigService;
 import es.uniovi.asw.configuration.business.impl.SimpleServicesFactory;
-import es.uniovi.asw.dbupdate.model.Configuration;
+import es.uniovi.asw.dbupdate.model.ConfigurationElection;
 
 @ManagedBean(name = "configuration")
-public class BeanConfiguration extends Configuration implements Serializable {
+public class BeanConfiguration extends ConfigurationElection implements Serializable {
 	private static final long serialVersionUID = 6L;
 	
 	public String configura() {
