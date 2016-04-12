@@ -27,10 +27,10 @@ public class ConfigurationElection {
 
 	@OneToMany(mappedBy="configurationElection")
 	private Set<TelematicVoter> telematicVote;
-//	@OneToMany(mappedBy="configurationElection")
-//	private Set<VotableOption> votableOptions;
-//	@OneToMany(mappedBy="configurationElection")
-//	private Set<ElectoralCollege> electoralColleges;
+	@OneToMany(mappedBy="configurationElection")
+	private Set<VotableOption> votableOptions;
+	@OneToMany(mappedBy="configurationElection")
+	private Set<ElectoralCollege> electoralColleges;
 
 	ConfigurationElection(){
 
@@ -48,7 +48,7 @@ public class ConfigurationElection {
 		this.applicationEnd = applicationEnd;
 		this.votationStart = votationStart;
 		this.votationEnd = votationEnd;
-//		this.votableOptions = votableOptions;
+		this.votableOptions = votableOptions;
 //		this.electoralColleges = electoralColleges;
 		this.multipleVoting = multipleVoting;
 		
@@ -102,21 +102,21 @@ public class ConfigurationElection {
 		this.votationEnd = votationEnd;
 	}
 
-//	public Set<VotableOption> getVotableOptions() {
-//		return votableOptions;
-//	}
-//
-//	public void setVotableOptions(Set<VotableOption> votableOptions) {
-//		this.votableOptions = votableOptions;
-//	}
-//
-//	public Set<ElectoralCollege> getElectoralColleges() {
-//		return electoralColleges;
-//	}
-//
-//	public void setElectoralColleges(Set<ElectoralCollege> electoralColleges) {
-//		this.electoralColleges = electoralColleges;
-//	}
+	public Set<VotableOption> getVotableOptions() {
+		return votableOptions;
+	}
+
+	public void setVotableOptions(Set<VotableOption> votableOptions) {
+		this.votableOptions = votableOptions;
+	}
+
+	public Set<ElectoralCollege> getElectoralColleges() {
+		return electoralColleges;
+	}
+
+	public void setElectoralColleges(Set<ElectoralCollege> electoralColleges) {
+		this.electoralColleges = electoralColleges;
+	}
 
 	public Set<TelematicVoter> getTelematicVote() {
 		return telematicVote;

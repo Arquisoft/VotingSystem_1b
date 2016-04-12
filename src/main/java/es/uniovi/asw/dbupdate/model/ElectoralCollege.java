@@ -1,18 +1,20 @@
 package es.uniovi.asw.dbupdate.model;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+@Entity
 public class ElectoralCollege {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private String codigo;
-//	@ManyToOne
-//	private ConfigurationElection configurationElection;
+	@ManyToOne
+	private ConfigurationElection configurationElection;
 	
 	ElectoralCollege() { }
 	
@@ -20,7 +22,7 @@ public class ElectoralCollege {
 			ConfigurationElection configurationElection) {
 		super();
 		this.codigo = codigo;
-//		this.configurationElection = configurationElection;
+		this.configurationElection = configurationElection;
 	}
 	
 	public String getCodigo() {
@@ -31,13 +33,13 @@ public class ElectoralCollege {
 		this.codigo = codigo;
 	}
 
-//	public ConfigurationElection getConfigurationElection() {
-//		return configurationElection;
-//	}
-//
-//	public void setConfigurationElection(ConfigurationElection configurationElection) {
-//		this.configurationElection = configurationElection;
-//	}
+	public ConfigurationElection getConfigurationElection() {
+		return configurationElection;
+	}
+
+	public void setConfigurationElection(ConfigurationElection configurationElection) {
+		this.configurationElection = configurationElection;
+	}
 
 	public String getCodigoColegio() {
 		return codigo;
