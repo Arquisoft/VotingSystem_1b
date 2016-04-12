@@ -3,7 +3,7 @@ package es.uniovi.asw.dbupdate.model;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 public class VotableOption {
 
@@ -12,8 +12,8 @@ public class VotableOption {
 	private Long id;
 	private String nombre;
 	private String descripcion;
-	@OneToMany
-	private ConfigurationElection configurationElection;
+//	@ManyToOne
+//	private ConfigurationElection configurationElection;
 	
 	VotableOption() { }
 	
@@ -22,7 +22,7 @@ public class VotableOption {
 		super();
 		this.nombre = nombre;
 		this.descripcion = descripcion;
-		this.configurationElection = configurationElection;
+//		this.configurationElection = configurationElection;
 	}
 
 	public String getNombre() {
@@ -41,12 +41,12 @@ public class VotableOption {
 		this.descripcion = descripcion;
 	}
 
-	public ConfigurationElection getConfigurationElection() {
-		return configurationElection;
-	}
-
-	public void setConfigurationElection(ConfigurationElection configurationElection) {
-		this.configurationElection = configurationElection;
-	}
+//	public ConfigurationElection getConfigurationElection() {
+//		return configurationElection;
+//	}
+//
+//	public void setConfigurationElection(ConfigurationElection configurationElection) {
+//		this.configurationElection = configurationElection;
+//	}
 	
 }

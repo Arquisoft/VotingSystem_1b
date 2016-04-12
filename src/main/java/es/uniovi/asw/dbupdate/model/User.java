@@ -1,6 +1,5 @@
 package es.uniovi.asw.dbupdate.model;
 
-import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -30,16 +29,13 @@ public class User {
 		@OneToMany(mappedBy="user")
 		private Set<TelematicVoter> telematicVote;
 		
-		protected User(){
-			
-		}
+		User(){ }
+		
 		public User(String nombre, String mail, String nif, String codigoColegio){
 			this.nombre=nombre;
 			this.mail=mail;
 			this.nif=nif;
-			this.codigoColegio=codigoColegio;
-			telematicVote= new HashSet<TelematicVoter>();
-			
+			this.codigoColegio=codigoColegio;			
 		}
 
 		public String getNombre() {
@@ -73,10 +69,6 @@ public class User {
 		}
 		public void setTelematicVote(Set<TelematicVoter> telematicVote) {
 			this.telematicVote = telematicVote;
-		}
-		
-		public void addTelematicvoterToSet(TelematicVoter tmad){
-			telematicVote.add(tmad);
 		}
 
 	}

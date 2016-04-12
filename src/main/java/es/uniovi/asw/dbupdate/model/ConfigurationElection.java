@@ -1,13 +1,13 @@
 package es.uniovi.asw.dbupdate.model;
 
 import java.util.Date;
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -23,11 +23,14 @@ public class ConfigurationElection {
 	private Date applicationEnd;
 	private Date votationStart;
 	private Date votationEnd;
-	@ManyToOne
-	private List<VotableOption> votableOptions;
-	@ManyToOne
-	private List<ElectoralCollege> electoralColleges;
 	private boolean multipleVoting;
+
+	@OneToMany(mappedBy="configurationElection")
+	private Set<TelematicVoter> telematicVote;
+//	@OneToMany(mappedBy="configurationElection")
+//	private Set<VotableOption> votableOptions;
+//	@OneToMany(mappedBy="configurationElection")
+//	private Set<ElectoralCollege> electoralColleges;
 
 	ConfigurationElection(){
 
@@ -35,8 +38,8 @@ public class ConfigurationElection {
 	
 	public ConfigurationElection(String name, String description,
 			Date applicationStart, Date applicationEnd, Date votationStart,
-			Date votationEnd, List<VotableOption> votableOptions,
-			List<ElectoralCollege> electoralColleges, boolean multipleVoting) {
+			Date votationEnd, Set<VotableOption> votableOptions,
+			Set<ElectoralCollege> electoralColleges, boolean multipleVoting) {
 		
 		super();
 		this.name = name;
@@ -45,8 +48,8 @@ public class ConfigurationElection {
 		this.applicationEnd = applicationEnd;
 		this.votationStart = votationStart;
 		this.votationEnd = votationEnd;
-		this.votableOptions = votableOptions;
-		this.electoralColleges = electoralColleges;
+//		this.votableOptions = votableOptions;
+//		this.electoralColleges = electoralColleges;
 		this.multipleVoting = multipleVoting;
 		
 	}
@@ -99,22 +102,30 @@ public class ConfigurationElection {
 		this.votationEnd = votationEnd;
 	}
 
-	public List<VotableOption> getVotableOptions() {
-		return votableOptions;
+//	public Set<VotableOption> getVotableOptions() {
+//		return votableOptions;
+//	}
+//
+//	public void setVotableOptions(Set<VotableOption> votableOptions) {
+//		this.votableOptions = votableOptions;
+//	}
+//
+//	public Set<ElectoralCollege> getElectoralColleges() {
+//		return electoralColleges;
+//	}
+//
+//	public void setElectoralColleges(Set<ElectoralCollege> electoralColleges) {
+//		this.electoralColleges = electoralColleges;
+//	}
+
+	public Set<TelematicVoter> getTelematicVote() {
+		return telematicVote;
 	}
 
-	public void setVotableOptions(List<VotableOption> votableOptions) {
-		this.votableOptions = votableOptions;
+	public void setTelematicVote(Set<TelematicVoter> telematicVote) {
+		this.telematicVote = telematicVote;
 	}
-
-	public List<ElectoralCollege> getElectoralColleges() {
-		return electoralColleges;
-	}
-
-	public void setElectoralColleges(List<ElectoralCollege> electoralColleges) {
-		this.electoralColleges = electoralColleges;
-	}
-
+	
 	public boolean isMultipleVoting() {
 		return multipleVoting;
 	}

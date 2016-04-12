@@ -11,18 +11,16 @@ public class ElectoralCollege {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private String codigo;
-	@ManyToOne
-	private ConfigurationElection configurationElection;
+//	@ManyToOne
+//	private ConfigurationElection configurationElection;
 	
-	ElectoralCollege(){
-		
-	}
+	ElectoralCollege() { }
 	
 	public ElectoralCollege(String codigo,
 			ConfigurationElection configurationElection) {
 		super();
 		this.codigo = codigo;
-		this.configurationElection = configurationElection;
+//		this.configurationElection = configurationElection;
 	}
 	
 	public String getCodigo() {
@@ -33,13 +31,13 @@ public class ElectoralCollege {
 		this.codigo = codigo;
 	}
 
-	public ConfigurationElection getConfigurationElection() {
-		return configurationElection;
-	}
-
-	public void setConfigurationElection(ConfigurationElection configurationElection) {
-		this.configurationElection = configurationElection;
-	}
+//	public ConfigurationElection getConfigurationElection() {
+//		return configurationElection;
+//	}
+//
+//	public void setConfigurationElection(ConfigurationElection configurationElection) {
+//		this.configurationElection = configurationElection;
+//	}
 
 	public String getCodigoColegio() {
 		return codigo;

@@ -17,6 +17,7 @@ public class TelematicVoter {
 	@ManyToOne
 	private User user;
 	private boolean voted;
+	@ManyToOne
 	private ConfigurationElection configurationElection;
 	
 	TelematicVoter(){ }
