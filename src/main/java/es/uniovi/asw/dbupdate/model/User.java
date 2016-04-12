@@ -37,6 +37,7 @@ public class User {
 			
 		}
 		public User(String nombre, String mail, String nif, String codigoColegio){
+			super();
 			this.nombre=nombre;
 			this.mail=mail;
 			this.nif=nif;
