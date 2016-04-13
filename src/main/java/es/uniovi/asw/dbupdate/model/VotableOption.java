@@ -1,49 +1,59 @@
 package es.uniovi.asw.dbupdate.model;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.OneToMany;
 
 @Entity
-@Table(name="Votantes_Telematicos")
-public class TelematicVoter {
-	
+public class VotableOption {
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
-	@ManyToOne
-	private User user;
-	private boolean voted;
+	private String nombre;
+	private String descripcion;
 	@ManyToOne
 	private ConfigurationElection configurationElection;
+	@OneToMany(mappedBy="elementoVotable")
+	private Set<Vote> votos;
 	
-	TelematicVoter(){ }
+	public Set<Vote> getVotos() {
+		return votos;
+	}
+
+	public void setVotos(Set<Vote> votos) {
+		this.votos = votos;
+	}
+
+	VotableOption() { }
 	
-	public TelematicVoter(User user, boolean voted,
+	public VotableOption(String nombre, String descripcion,
 			ConfigurationElection configurationElection) {
 		super();
-		this.user = user;
-		this.voted = voted;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
 		this.configurationElection = configurationElection;
 	}
 
-	public User getUser() {
-		return user;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
-	public boolean isVoted() {
-		return voted;
+	public String getDescripcion() {
+		return descripcion;
 	}
 
-	public void setVoted(boolean voted) {
-		this.voted = voted;
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 
 	public ConfigurationElection getConfigurationElection() {
@@ -54,6 +64,4 @@ public class TelematicVoter {
 		this.configurationElection = configurationElection;
 	}
 	
-	
-
 }

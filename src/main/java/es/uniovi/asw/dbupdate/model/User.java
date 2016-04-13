@@ -1,6 +1,5 @@
 package es.uniovi.asw.dbupdate.model;
 
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -10,9 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-
-//mapeamos la tabla como en hibernate
 
 @Entity
 @Table(name="USUARIOS")
@@ -33,16 +29,14 @@ public class User {
 		@OneToMany(mappedBy="user")
 		private Set<TelematicVoter> telematicVote;
 		
-		protected User(){
-			
-		}
+		User(){ }
+		
 		public User(String nombre, String mail, String nif, String codigoColegio){
 			super();
 			this.nombre=nombre;
 			this.mail=mail;
 			this.nif=nif;
-			this.codigoColegio=codigoColegio;
-			
+			this.codigoColegio=codigoColegio;			
 		}
 
 		public String getNombre() {
@@ -77,6 +71,5 @@ public class User {
 		public void setTelematicVote(Set<TelematicVoter> telematicVote) {
 			this.telematicVote = telematicVote;
 		}
-
 
 	}

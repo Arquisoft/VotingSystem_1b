@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import es.uniovi.asw.dbupdate.model.TelematicVoter;
 import es.uniovi.asw.dbupdate.model.User;
 
 //TODO: cambiar restcontroler por
