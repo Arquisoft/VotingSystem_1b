@@ -26,13 +26,41 @@ public class Vote {
 
 	Vote(){ }
 
-	public Vote(Date fecha, ElectoralCollege codigoColegio,
-			VotableOption idElementoVotable, int cantidad){
-		this.fecha=fecha;
-		this.colegio=codigoColegio;
-		this.elementoVotable=idElementoVotable;
-		this.setCantidad(cantidad);
+	public Vote(Date fecha, ElectoralCollege colegio,
+			VotableOption elementoVotable, int cantidad) {
+		super();
+		this.fecha = fecha;
+		this.colegio = colegio;
+		this.elementoVotable = elementoVotable;
+		this.cantidad = cantidad;
 	}
+
+
+
+	public ElectoralCollege getColegio() {
+		return colegio;
+	}
+
+
+	public void setColegio(ElectoralCollege colegio) {
+		this.colegio = colegio;
+	}
+
+
+	public VotableOption getElementoVotable() {
+		return elementoVotable;
+	}
+
+
+	public void setElementoVotable(VotableOption elementoVotable) {
+		this.elementoVotable = elementoVotable;
+	}
+
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+
 
 	public Date getFecha() {
 		return fecha;

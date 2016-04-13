@@ -27,36 +27,36 @@ import es.uniovi.asw.util.SeleniumUtils;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Main.class)
 public class VoteApplicationTest {
-	/*
-	
+
+
 	WebDriver driver;
 	@Autowired
 	UserDAO ud;
-	
+
 	private static boolean setUpIsDone = false;
-	
+
 	@Before
 	public void startBD(){
 		if(!setUpIsDone){
 			User user = new User("Pepe", "pepe@gmail.com", "74321123N", "321");
 			user.setContrasena("12345");
-			
+
 			ud.save(user);
 			setUpIsDone = true;
 		}
 	}
-	
+
 	@Before
 	public void run() throws Exception{
-		
+
 		if(System.getenv().get("TRAVIS_JOB_NUMBER") != null){
-			
+
 			DesiredCapabilities capability = DesiredCapabilities.firefox();
 			capability.setCapability("tunnel-identifier", System.getenv().get("TRAVIS_JOB_NUMBER"));
-			
+
 			URL url = new URL("http://" + System.getenv().get("SAUCE_USERNAME") + ":" 
 					+ System.getenv().get("SAUCE_ACCESS_KEY") + "@ondemand.saucelabs.com/wd/hub");
-			
+
 			driver = new RemoteWebDriver(url, capability);
 
 		}
@@ -65,36 +65,36 @@ public class VoteApplicationTest {
 		}
 
 	}
-	
+
 	@After
 	public void close() throws Exception{
 		driver.close();
 	}
-	
+
 	@Test
 	public void DatosIncorrectos() throws InterruptedException {
-		
+
 		driver.get("http://localhost:8080/application/index.xhtml");
 		SeleniumUtils.EsperaCargaPagina(driver, "text", "VoteApplication", 2); 
-		
+
 		rellenarFormulario("pepe@pepe.com", "12345");
-		
+
 		SeleniumUtils.EsperaCargaPagina(driver, "text", "Correo electronico y/o contraseña incorrectos", 2); 
 
 	}
 
 	@Test
 	public void DatosCorrectos() throws InterruptedException {
-		
+
 		driver.get("http://localhost:8080/application/index.xhtml");
 		SeleniumUtils.EsperaCargaPagina(driver, "text", "VoteApplication", 2); 
-		
+
 		rellenarFormulario("pepe@gmail.com", "12345");
-		
+
 		SeleniumUtils.EsperaCargaPagina(driver, "text", "Voto telematico admitido", 2); 
 
 	}
-	
+
 	private void rellenarFormulario(String email, String password) {
 		WebElement elemento = driver.findElement(By.id("input_form-cuerpo:email"));
 		elemento.sendKeys(email);
@@ -102,8 +102,8 @@ public class VoteApplicationTest {
 		elemento.sendKeys(password);
 		elemento = driver.findElement(By.id("form-cuerpo:solicitar"));
 		elemento.click();
-		
+
 	}
-	*/
+
 
 }
