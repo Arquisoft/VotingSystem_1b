@@ -1,4 +1,4 @@
-package es.uniovi.asw.voteApplication.beans;
+package es.uniovi.asw.voter.application.beans;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.jsf.FacesContextUtils;
 
-import es.uniovi.asw.voteApplication.bussiness.impl.SimpleApplicationService;
-import es.uniovi.asw.voteApplication.exception.InvalidUserException;
+import es.uniovi.asw.voter.application.bussiness.impl.SimpleApplicationService;
+import es.uniovi.asw.voter.application.exception.InvalidUserException;
 
 @Component
 public class BeanApplication {

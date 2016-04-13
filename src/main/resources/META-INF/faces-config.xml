@@ -8,7 +8,15 @@
 	<managed-bean>
 		<managed-bean-name>voteApplication</managed-bean-name>
 		<managed-bean-class>
-			es.uniovi.asw.voteApplication.beans.BeanApplication
+			es.uniovi.asw.voter.application.beans.BeanApplication
+		</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>voter</managed-bean-name>
+		<managed-bean-class>
+			es.uniovi.asw.voter.beans.BeanVoter
 		</managed-bean-class>
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
