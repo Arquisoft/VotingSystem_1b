@@ -1,10 +1,12 @@
-package es.uniovi.asw.dbupdate.repositories;
+package es.uniovi.asw.dbupdate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import es.uniovi.asw.dbupdate.model.User;
+import es.uniovi.asw.dbupdate.repositories.TelematicVoterDAO;
+import es.uniovi.asw.dbupdate.repositories.UserDAO;
 
 //TODO: cambiar restcontroler por
 // controler normal
