@@ -32,7 +32,7 @@ public class ConfigurationElection {
 	@OneToMany(mappedBy="configurationElection")
 	private Set<ElectoralCollege> electoralColleges;
 
-	ConfigurationElection(){
+	public ConfigurationElection(){
 
 	}
 	
@@ -133,6 +133,9 @@ public class ConfigurationElection {
 	public void setMultipleVoting(boolean multipleVoting) {
 		this.multipleVoting = multipleVoting;
 	}
-
+	
+	public ConfigurationElection getConfigurationElection() {
+		return this;
+	}
 
 }
