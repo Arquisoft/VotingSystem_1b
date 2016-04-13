@@ -8,9 +8,17 @@
 	<managed-bean>
 		<managed-bean-name>voteApplication</managed-bean-name>
 		<managed-bean-class>
-			es.uniovi.asw.voteApplication.beans.BeanApplication
+			es.uniovi.asw.voter.application.beans.BeanApplication
 		</managed-bean-class>
 		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>voter</managed-bean-name>
+		<managed-bean-class>
+			es.uniovi.asw.voter.beans.BeanVoter
+		</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 
 
@@ -31,6 +39,18 @@
 		<phase-listener>org.springframework.web.jsf.DelegatingPhaseListenerMulticaster
 		</phase-listener>
 	</lifecycle>
+	
+	<navigation-rule>
+		<from-view-id>/index.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>apply</from-outcome>
+			<to-view-id>/application/index.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>vote</from-outcome>
+			<to-view-id>/vote/index.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 
 
 </faces-config>

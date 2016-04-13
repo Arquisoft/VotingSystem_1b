@@ -1,7 +1,7 @@
 package es.uniovi.asw.dbupdate.model;
 
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,11 +26,11 @@ public class ConfigurationElection {
 	private boolean multipleVoting;
 
 	@OneToMany(mappedBy="configurationElection")
-	private Set<TelematicVoter> telematicVote;
+	private List<TelematicVoter> telematicVote;
 	@OneToMany(mappedBy="configurationElection")
-	private Set<VotableOption> votableOptions;
+	private List<VotableOption> votableOptions;
 	@OneToMany(mappedBy="configurationElection")
-	private Set<ElectoralCollege> electoralColleges;
+	private List<ElectoralCollege> electoralColleges;
 
 	ConfigurationElection(){
 
@@ -38,8 +38,8 @@ public class ConfigurationElection {
 	
 	public ConfigurationElection(String name, String description,
 			Date applicationStart, Date applicationEnd, Date votationStart,
-			Date votationEnd, Set<VotableOption> votableOptions,
-			Set<ElectoralCollege> electoralColleges, boolean multipleVoting) {
+			Date votationEnd, List<VotableOption> votableOptions,
+			List<ElectoralCollege> electoralColleges, boolean multipleVoting) {
 		
 		super();
 		this.name = name;
@@ -49,7 +49,7 @@ public class ConfigurationElection {
 		this.votationStart = votationStart;
 		this.votationEnd = votationEnd;
 		this.votableOptions = votableOptions;
-//		this.electoralColleges = electoralColleges;
+		this.electoralColleges = electoralColleges;
 		this.multipleVoting = multipleVoting;
 		
 	}
@@ -102,27 +102,27 @@ public class ConfigurationElection {
 		this.votationEnd = votationEnd;
 	}
 
-	public Set<VotableOption> getVotableOptions() {
+	public List<VotableOption> getVotableOptions() {
 		return votableOptions;
 	}
 
-	public void setVotableOptions(Set<VotableOption> votableOptions) {
+	public void setVotableOptions(List<VotableOption> votableOptions) {
 		this.votableOptions = votableOptions;
 	}
 
-	public Set<ElectoralCollege> getElectoralColleges() {
+	public List<ElectoralCollege> getElectoralColleges() {
 		return electoralColleges;
 	}
 
-	public void setElectoralColleges(Set<ElectoralCollege> electoralColleges) {
+	public void setElectoralColleges(List<ElectoralCollege> electoralColleges) {
 		this.electoralColleges = electoralColleges;
 	}
 
-	public Set<TelematicVoter> getTelematicVote() {
+	public List<TelematicVoter> getTelematicVote() {
 		return telematicVote;
 	}
 
-	public void setTelematicVote(Set<TelematicVoter> telematicVote) {
+	public void setTelematicVote(List<TelematicVoter> telematicVote) {
 		this.telematicVote = telematicVote;
 	}
 	
@@ -132,6 +132,14 @@ public class ConfigurationElection {
 
 	public void setMultipleVoting(boolean multipleVoting) {
 		this.multipleVoting = multipleVoting;
+	}
+	
+	public boolean isOpenForApply(){
+		return new Date().after(applicationStart) && new Date().before(applicationEnd);
+	}
+	
+	public boolean isOpenForVote(){
+		return new Date().after(votationStart) && new Date().before(votationEnd);
 	}
 
 

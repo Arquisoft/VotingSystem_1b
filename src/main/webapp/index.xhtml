@@ -4,6 +4,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:b="http://bootsfaces.net/ui"
 	xmlns:p="http://primefaces.org/ui">
 
 <f:view>
@@ -11,8 +12,51 @@
 		<title>VotingSystem</title>
 	</h:head>
 	<h:body>
-		
-		Hola
+				<b:container layout="fluid">
+
+		<h:form>
+				<b:dataTable value="#{voter.list}" var="option" styleClass="table table-striped table-bordered" style="width:100%">
+				  <h:column>
+				    <f:facet name="header">
+				      <h:outputText value="Nombre" />
+				    </f:facet>
+				    <h:outputText value="#{option.name}" />
+				  </h:column>
+				   <h:column>
+				    <f:facet name="header">
+				      <h:outputText value="Descripcion" />
+				    </f:facet>
+				    <h:outputText value="#{option.description}" />
+				  </h:column>
+				  <h:column>
+				  <f:facet name="header">
+				      <h:outputText value="Solicitar voto electronico" />
+				    </f:facet>
+				    <h:commandLink
+				    	id="apply"
+				    	rendered="#{option.isOpenForApply()}"
+				    	action="apply"
+				    	actionListener="#{voter.setConfigurationElection(option)}"
+				     	value="Ir a realizar la solicitud" />
+				     	<h:outputText rendered="#{!option.isOpenForApply()}" value="No se puede solicitar voto telematico" />
+				  </h:column>
+				  <h:column>
+				  <f:facet name="header">
+				      <h:outputText value="Votar" />
+				    </f:facet>
+				     <h:commandLink
+				     	id="vote"
+				    	rendered="#{option.isOpenForVote()}"
+				    	action="vote"
+				    	actionListener="#{voter.setConfigurationElection(option)}"
+				     	value="Ir a votar" />
+				     	<h:outputText rendered="#{!option.isOpenForVote()}" value="No se puede votar" />
+				  </h:column>
+				 
+				</b:dataTable>
+		</h:form>
+					</b:container>
+
 
 	</h:body>
 </f:view>
