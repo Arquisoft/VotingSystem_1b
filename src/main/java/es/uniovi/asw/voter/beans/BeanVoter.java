@@ -1,36 +1,35 @@
 package es.uniovi.asw.voter.beans;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
+import javax.faces.context.FacesContext;
+
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.jsf.FacesContextUtils;
+
 import es.uniovi.asw.dbupdate.model.ConfigurationElection;
-import es.uniovi.asw.dbupdate.model.ElectoralCollege;
-import es.uniovi.asw.dbupdate.model.VotableOption;
+import es.uniovi.asw.voter.bussiness.VoteService;
+
 
 public class BeanVoter {
 	
 	private List<ConfigurationElection> list;
+	private ConfigurationElection configurationElection;
 
 	public List<ConfigurationElection> getList() {
-		list = new ArrayList<>();
+		WebApplicationContext ctx =  FacesContextUtils.getWebApplicationContext(FacesContext.getCurrentInstance());
+		VoteService vs = ctx.getBean(VoteService.class);
 		
-		List<VotableOption> listaOptiones = new ArrayList<>();
-		List<ElectoralCollege> listaColegios = new ArrayList<>();
-		
-		Date fecha = new Date();
-		fecha.setMonth(fecha.getMonth() - 1);
-		Date applycationStart = new Date(fecha.getTime());
-		fecha.setMonth(fecha.getMonth() + 2);
-		Date applycationEnd = new Date(fecha.getTime());
-		
-		ConfigurationElection c = new ConfigurationElection("Prueba votacion",
-				"Probando", applycationStart, applycationEnd, new Date(), new Date(), listaOptiones,
-				listaColegios, false);
-		
-		list.add(c);
-		
+		list = vs.getElections();
 		return list;
+	}
+
+	public ConfigurationElection getConfigurationElection() {
+		return configurationElection;
+	}
+
+	public void setConfigurationElection(ConfigurationElection configurationElection) {
+		this.configurationElection = configurationElection;
 	}
 
 }

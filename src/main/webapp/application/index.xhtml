@@ -6,7 +6,7 @@
 	xmlns:b="http://bootsfaces.net/ui"
 	template="/templates/template-general.xhtml">
 	<ui:define name="titulo">
-		VoteApplication
+		VoteApplication para #{voter.configurationElection.name}
 	</ui:define>
 	<ui:define name="cuerpo">
 			<b:container layout="fluid">
@@ -32,7 +32,7 @@
 			         	<b:commandButton 
 			         		id="solicitar"
 			         		value="Solicitar voto telematico" 
-			         		actionListener="#{voteApplication.apply()}"
+			         		actionListener="#{voteApplication.apply(voter.configurationElection)}"
 			         		look="primary" 
 			         		style="width:100%" 
 			         	/>
