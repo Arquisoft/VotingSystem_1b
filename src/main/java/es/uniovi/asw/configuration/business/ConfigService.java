@@ -1,9 +1,9 @@
 package es.uniovi.asw.configuration.business;
 
 import es.uniovi.asw.dbupdate.exception.PersistenceException;
-import es.uniovi.asw.dbupdate.model.Configuration;
+import es.uniovi.asw.dbupdate.model.ConfigurationElection;
 
 public interface ConfigService {
 
-	void saveConfiguration(Configuration config) throws PersistenceException;
+	void saveConfiguration(ConfigurationElection config) throws PersistenceException;
 }

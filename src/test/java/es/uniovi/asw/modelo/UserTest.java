@@ -1,6 +1,6 @@
 package es.uniovi.asw.modelo;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -10,7 +10,7 @@ import org.junit.Test;
 import es.uniovi.asw.dbupdate.model.TelematicVoter;
 import es.uniovi.asw.dbupdate.model.User;
 
-public class TestUser {
+public class UserTest {
 
 	@Test
 	public void testBasicoUsuario() {
@@ -22,8 +22,9 @@ public class TestUser {
 		assertEquals("nif",u.getNif());
 		assertEquals("codigo", u.getCodigoColegio());
 		
-		TelematicVoter t= new TelematicVoter(u, false);
+		TelematicVoter t= new TelematicVoter(u, false, null);
 		Set<TelematicVoter> miSet= new HashSet<TelematicVoter>();
+		miSet.add(t);
 		u.setTelematicVote(miSet);
 		assertEquals(miSet, u.getTelematicVote());
 		

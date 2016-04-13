@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -17,33 +18,68 @@ public class Vote {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private Date fecha;
-	private String codigoColegio;
-	private String opcion;
-	
+	@ManyToOne
+	private ElectoralCollege colegio;
+	@ManyToOne
+	private VotableOption elementoVotable;
+	private int cantidad;
 
-//	private OpcionesVoto opcionVoto; //TODO ayuda al meter esto aqui
-	
-	protected Vote(){
-		
+	Vote(){ }
+
+	public Vote(Date fecha, ElectoralCollege colegio,
+			VotableOption elementoVotable, int cantidad) {
+		super();
+		this.fecha = fecha;
+		this.colegio = colegio;
+		this.elementoVotable = elementoVotable;
+		this.cantidad = cantidad;
 	}
-	
-	public Vote(Date fecha, String codigoColegio, String opcion){
-		//private OpcionesVoto opcionVoto;
-		this.fecha=fecha;
-		this.codigoColegio=codigoColegio;
-		this.opcion=opcion;
+
+
+
+	public ElectoralCollege getColegio() {
+		return colegio;
 	}
+
+
+	public void setColegio(ElectoralCollege colegio) {
+		this.colegio = colegio;
+	}
+
+
+	public VotableOption getElementoVotable() {
+		return elementoVotable;
+	}
+
+
+	public void setElementoVotable(VotableOption elementoVotable) {
+		this.elementoVotable = elementoVotable;
+	}
+
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+
 
 	public Date getFecha() {
 		return fecha;
 	}
-	
-	public String getCodigoColegio() {
-		return codigoColegio;
+
+	public ElectoralCollege getIDCodigoColegio() {
+		return colegio;
 	}
 
-	public String getOpcion() {
-		return opcion;
+	public VotableOption getIDOpcion() {
+		return elementoVotable;
 	}
-		
+
+	public int getCantidad() {
+		return cantidad;
 	}
+
+	public void setCantidad(int cantidad) {
+		this.cantidad = cantidad;
+	}
+
+}
