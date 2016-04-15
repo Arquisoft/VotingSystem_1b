@@ -95,6 +95,7 @@ public class VoteApplicationTest {
 	@After
 	public void close() throws Exception{
 		driver.close();
+		driver.quit();
 	}
 
 	@Test
