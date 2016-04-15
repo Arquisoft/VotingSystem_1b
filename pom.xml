@@ -115,6 +115,18 @@
 			<artifactId>selenium-remote-driver</artifactId>
 			<version>2.53.0</version>
 		</dependency>
+		<dependency>
+			<groupId>com.saucelabs</groupId>
+			<artifactId>sauce_junit</artifactId>
+			<version>2.1.18</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
 
 		<!-- JSF, PrimeFaces y BootFaces -->
 		<dependency>
@@ -145,12 +157,6 @@
 			<version>0.8.0</version>
 		</dependency>
 
-		<dependency>
-			<groupId>com.saucelabs</groupId>
-			<artifactId>sauce_junit</artifactId>
-			<version>2.1.18</version>
-			<scope>test</scope>
-		</dependency>
 	</dependencies>
 
 	<properties>
