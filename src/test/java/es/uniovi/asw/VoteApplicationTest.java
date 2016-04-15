@@ -21,6 +21,8 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+import com.saucelabs.saucerest.SauceREST;
+
 import es.uniovi.asw.dbupdate.model.ConfigurationElection;
 import es.uniovi.asw.dbupdate.model.ElectoralCollege;
 import es.uniovi.asw.dbupdate.model.User;
@@ -77,13 +79,14 @@ public class VoteApplicationTest {
 
 		if(System.getenv().get("TRAVIS_JOB_NUMBER") != null){
 
-			DesiredCapabilities capability = DesiredCapabilities.firefox();
-			capability.setCapability("tunnel-identifier", System.getenv().get("TRAVIS_JOB_NUMBER"));
-
 			URL url = new URL("http://" + System.getenv().get("SAUCE_USERNAME") + ":" 
 					+ System.getenv().get("SAUCE_ACCESS_KEY") + "@ondemand.saucelabs.com/wd/hub");
+			
+			DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+			capabilities.setCapability("tunnel-identifier", System.getenv().get("TRAVIS_JOB_NUMBER"));
+	        capabilities.setCapability("name", "Vote Application");
 
-			driver = new RemoteWebDriver(url, capability);
+			driver = new RemoteWebDriver(url, capabilities);
 
 		}
 		else{
@@ -94,6 +97,12 @@ public class VoteApplicationTest {
 
 	@After
 	public void close() throws Exception{
+		
+		if (System.getenv().get("TRAVIS_JOB_NUMBER") != null) {
+			SauceREST sauceRest = new SauceREST(System.getenv().get("SAUCE_USERNAME"), System.getenv().get("SAUCE_ACCESS_KEY"));
+			sauceRest.jobPassed((((RemoteWebDriver) driver).getSessionId()).toString());
+		}
+		
 		driver.close();
 		driver.quit();
 	}
