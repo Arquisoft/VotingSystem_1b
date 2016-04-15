@@ -7,6 +7,9 @@ Voting System
 [![codecov.io](https://codecov.io/github/Arquisoft/VotingSystem_1b/coverage.svg?branch=master)](https://codecov.io/github/Arquisoft/VotingSystem_1b?branch=master)
 [![Sauce Test Status](https://saucelabs.com/buildstatus/SantiMA10?auth=2a20728ed2c204f2b3b860493620581f)](https://saucelabs.com/u/SantiMA10?auth=2a20728ed2c204f2b3b860493620581f)
 
+# Deploy
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 
 # Authors
 
