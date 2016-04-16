@@ -35,7 +35,7 @@ import es.uniovi.asw.util.SeleniumUtils;
 @IntegrationTest
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Main.class)
-public class VoteApplicationTest {
+public class VoteApplication {
 
 
 	WebDriver driver;
