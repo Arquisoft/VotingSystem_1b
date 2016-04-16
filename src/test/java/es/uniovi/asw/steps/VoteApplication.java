@@ -32,7 +32,7 @@ import es.uniovi.asw.util.SeleniumUtils;
 @WebAppConfiguration
 public class VoteApplication {
 
-	private WebDriver driver = CucumberTest.getDriver();
+	private WebDriver driver = CucumberTest.getDriver("VoteApplication");
 	
 	@Autowired
 	UserDAO ud;

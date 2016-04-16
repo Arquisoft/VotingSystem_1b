@@ -18,7 +18,7 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(features = "src/test/resources/features")
 public class CucumberTest{
 	
-	public static WebDriver getDriver(){
+	public static WebDriver getDriver(String testName){
 		WebDriver driver;
 		
 		if(System.getenv().get("TRAVIS_JOB_NUMBER") != null){
@@ -33,7 +33,7 @@ public class CucumberTest{
 			
 			DesiredCapabilities capabilities = DesiredCapabilities.firefox();
 			capabilities.setCapability("tunnel-identifier", System.getenv().get("TRAVIS_JOB_NUMBER"));
-	        capabilities.setCapability("name", "Vote Application");
+	        capabilities.setCapability("name", testName);
 
 			driver = new RemoteWebDriver(url, capabilities);
 
