@@ -164,11 +164,9 @@ public class ConfigurationElection {
 		this.multipleVoting = multipleVoting;
 	}
 	
-<<<<<<< HEAD
 	public ConfigurationElection getConfigurationElection() {
 		return this;
 	}
-=======
 	public boolean isOpenForApply(){
 		return new Date().after(applicationStart) && new Date().before(applicationEnd);
 	}
@@ -177,6 +175,5 @@ public class ConfigurationElection {
 		return new Date().after(votationStart) && new Date().before(votationEnd);
 	}
 
->>>>>>> master
 
 }

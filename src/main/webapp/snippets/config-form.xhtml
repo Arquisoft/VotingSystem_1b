@@ -41,13 +41,20 @@
   		<h:form>
 	  		<h:panelGroup>
 	  		<h:outputLabel for="opcionesVoto" value="Número de opciones de voto: " />
-	         <p:spinner id="opcionesVoto" value="#{configuration.numOptions}">
+	         <p:spinner id="opcionesVoto" value="#{configuration.numOptions}" min="2" max ="20">
 	                <p:ajax listener="#{configuration.opcionesVoto()}" update="inputs" />
 	         </p:spinner>
 	        </h:panelGroup>
 	        <h:panelGroup id="inputs">		
-				<ui:repeat value="#{configuration.votableOptions}" var="o">
-		   			 <p:inputText value="#{o.nombre}"></p:inputText>
+				<ui:repeat value="#{configuration.votableOptions}" var="o" varStatus="loop">
+				<h:panelGroup>
+					<br/>
+					<p:separator/>
+					 <h:outputLabel for="nombreOpcion" value="Nombre: " />
+		   			 <p:inputText id="nombreOpcion" value="#{o.nombre}"></p:inputText>
+		   			  <h:outputLabel for="descripcionOpcion" value="Descripción: " />
+		   			 <p:inputTextarea rows="3" cols="25" id="descripcionOpcion" value="#{o.descripcion}"></p:inputTextarea> 
+		   		</h:panelGroup>	 
 				</ui:repeat>
 			</h:panelGroup>
 		</h:form>	

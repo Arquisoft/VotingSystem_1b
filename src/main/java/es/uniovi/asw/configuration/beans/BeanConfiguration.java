@@ -21,7 +21,7 @@ public class BeanConfiguration extends ConfigurationElection implements Serializ
 	}
 
 	private static final long serialVersionUID = 6L;
-	private int numOptions;
+	private int numOptions = 2;
 	
 	public int getNumOptions() {
 		return numOptions;
@@ -36,7 +36,9 @@ public class BeanConfiguration extends ConfigurationElection implements Serializ
 		SimpleConfigService service = ctx.getBean(SimpleConfigService.class);
 		FacesContext fc = FacesContext.getCurrentInstance();		
 		try {
-			service.saveConfiguration(getConfigurationElection());
+			service.saveConfiguration(new ConfigurationElection(getName(), getDescription(), getApplicationStart(),
+					getApplicationEnd(), getVotationStart(), getVotationEnd(), getVotableOptions(), getElectoralColleges(),
+					isMultipleVoting()));
 			fc.addMessage("laInfo", new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Se ha guardado su configuración."));
 			} catch (Exception e) {
 				fc.addMessage("elError", new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Error al guardar la configuración"));
@@ -47,6 +49,7 @@ public class BeanConfiguration extends ConfigurationElection implements Serializ
 		}
 	
 	public String opcionesVoto() {
+		getVotableOptions().clear();
 		for(int i = 0; i<numOptions; i++){			
 			getVotableOptions().add(new VotableOption("","",this));
 		}
