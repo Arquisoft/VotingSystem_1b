@@ -9,20 +9,12 @@ import org.springframework.web.servlet.view.RedirectView;
 @RequestMapping("/")
 public class Controlador{
 	
-	private boolean votacionIniciada = true;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public RedirectView localRedirect() {
 	    RedirectView redirectView = new RedirectView();
 	    
-	    if(!votacionIniciada){
-		    redirectView.setUrl("/application/index.xhtml");
-	    }
-	    else{
-		    redirectView.setUrl("/vote/index.xhtml");
-	    }
-	    
-		votacionIniciada = !votacionIniciada;
+		redirectView.setUrl("index.xhtml");
 
 	    return redirectView;
 	}

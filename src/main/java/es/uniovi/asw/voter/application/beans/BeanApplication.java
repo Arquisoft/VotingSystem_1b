@@ -1,4 +1,4 @@
-package es.uniovi.asw.voteApplication.beans;
+package es.uniovi.asw.voter.application.beans;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -7,8 +7,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.jsf.FacesContextUtils;
 
-import es.uniovi.asw.voteApplication.bussiness.impl.SimpleApplicationService;
-import es.uniovi.asw.voteApplication.exception.InvalidUserException;
+import es.uniovi.asw.dbupdate.model.ConfigurationElection;
+import es.uniovi.asw.voter.application.bussiness.impl.SimpleApplicationService;
+import es.uniovi.asw.voter.application.exception.InvalidUserException;
 
 @Component
 public class BeanApplication {
@@ -29,12 +30,12 @@ public class BeanApplication {
 		this.password = password;
 	}
 	
-	public String apply(){
+	public String apply(ConfigurationElection configurationElection){
 		WebApplicationContext ctx =  FacesContextUtils.getWebApplicationContext(FacesContext.getCurrentInstance());
 		SimpleApplicationService sas = ctx.getBean(SimpleApplicationService.class);
 		
 		try {
-			sas.saveApplication(email, password);
+			sas.saveApplication(email, password, configurationElection);
 		} catch (InvalidUserException e) {
 			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "", "Correo electronico y/o contraseña incorrectos");
             FacesContext.getCurrentInstance().addMessage(null, msg);
