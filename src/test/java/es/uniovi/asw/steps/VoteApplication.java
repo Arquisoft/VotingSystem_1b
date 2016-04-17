@@ -30,36 +30,36 @@ public class VoteApplication {
 
 	@Entonces("^se ve la lista de las votaciones disponibles$")
 	public void se_ve_la_lista_de_las_votaciones_disponibles() throws Throwable {
-		SeleniumUtils.EsperaCargaPagina(driver, "text", "Ir a realizar la solicitud", 2); 
+		SeleniumUtils.esperaCargaPagina(driver, "text", "Ir a realizar la solicitud", 2); 
 	}
 
 	@Y("^decide la votacion y hace click en solicitar$")
 	public void decide_la_votacion_y_hace_click_en_solicitar() throws Throwable {
-		List<WebElement> elementos = SeleniumUtils.EsperaCargaPagina(driver, "id", "apply", 2); 
+		List<WebElement> elementos = SeleniumUtils.esperaCargaPagina(driver, "id", "apply", 2); 
 		elementos.get(0).click();
 	}
 
 	@Entonces("^se le piden sus datos\\(correctos\\) para finalizar la votacion$")
 	public void se_le_piden_sus_datos_correctos_para_finalizar_la_votacion() throws Throwable {
-		SeleniumUtils.EsperaCargaPagina(driver, "text", "VoteApplication", 2); 
+		SeleniumUtils.esperaCargaPagina(driver, "text", "VoteApplication", 2); 
 		rellenarFormulario("pepe@gmail.com", "12345");
 	}
 
 	@Entonces("^se le piden sus datos\\(incorrectos\\) para finalizar la votacion$")
 	public void se_le_piden_sus_datos_incorrectos_para_finalizar_la_votacion() throws Throwable {
-		SeleniumUtils.EsperaCargaPagina(driver, "text", "VoteApplication", 2); 
+		SeleniumUtils.esperaCargaPagina(driver, "text", "VoteApplication", 2); 
 		rellenarFormulario("pepe@pepe.com", "12345");
 	}
 
 	@Y("^al ser correctos se le indica con un mensaje$")
 	public void al_ser_correctos_se_le_indica_con_un_mensaje() throws Throwable {
-		SeleniumUtils.EsperaCargaPagina(driver, "text", "Voto telematico admitido", 2); 
+		SeleniumUtils.esperaCargaPagina(driver, "text", "Voto telematico admitido", 2); 
 		SeleniumUtils.finishTest(driver);
 	}
 
 	@Entonces("^al ser incorrectos se le indica con un mensaje$")
 	public void al_ser_incorrectos_se_le_indica_con_un_mensaje() throws Throwable {
-		SeleniumUtils.EsperaCargaPagina(driver, "text", "Correo electronico y/o contraseña incorrectos", 2); 
+		SeleniumUtils.esperaCargaPagina(driver, "text", "Correo electronico y/o contraseña incorrectos", 2); 
 		SeleniumUtils.finishTest(driver);
 	}
 
