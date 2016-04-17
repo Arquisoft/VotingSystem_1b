@@ -1,6 +1,7 @@
 package es.uniovi.asw.dbupdate.model;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -28,7 +29,7 @@ public class ConfigurationElection {
 	@OneToMany(mappedBy="configurationElection")
 	private Set<TelematicVoter> telematicVote;
 	@OneToMany(mappedBy="configurationElection")
-	private Set<VotableOption> votableOptions;
+	private Set<VotableOption> votableOptions = new HashSet<VotableOption>();
 	@OneToMany(mappedBy="configurationElection")
 	private Set<ElectoralCollege> electoralColleges;
 

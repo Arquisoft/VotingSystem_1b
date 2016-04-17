@@ -1,6 +1,7 @@
 package es.uniovi.asw.configuration.beans;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -9,9 +10,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.jsf.FacesContextUtils;
 
-import es.uniovi.asw.configuration.business.ConfigService;
 import es.uniovi.asw.configuration.business.impl.SimpleConfigService;
 import es.uniovi.asw.dbupdate.model.ConfigurationElection;
+import es.uniovi.asw.dbupdate.model.VotableOption;
 
 @Component
 public class BeanConfiguration extends ConfigurationElection implements Serializable {
@@ -35,5 +36,13 @@ public class BeanConfiguration extends ConfigurationElection implements Serializ
 		
 		return null;
 		}
+	
+	public String opcionesVoto(int x) {
+		for(int i = 0; i<x; i++)
+		{
+			getVotableOptions().add(new VotableOption("","",this));
+		}
+		return null;		
+	}
 }
 	

@@ -38,6 +38,19 @@
        		<h:outputText value="Voto múltiple: " />
        		<p:selectBooleanCheckbox value="#{configuration.multipleVoting}" />
   		</h:panelGroup>
+  		<h:form>
+	  		<h:panelGroup>
+	  		<h:outputLabel for="opcionesVoto" value="Número de opciones de voto: " />
+	         <p:spinner id="opcionesVoto" action="#{configuration.opcionesVoto(5)}">
+	                <p:ajax execute="@form" render="inputs"/>
+	         </p:spinner>
+	        </h:panelGroup>
+	        <h:panelGroup id="inputs">		
+				<ui:repeat value="#{configuration.votableOptions}">
+		   			 <p:inputText value="Validar"></p:inputText>
+				</ui:repeat>
+			</h:panelGroup>
+		</h:form>	
 		<p:commandButton value="Validar" action="#{configuration.configura}"
 			update="@all" process="@form">
 		</p:commandButton>
