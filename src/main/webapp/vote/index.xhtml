@@ -3,11 +3,37 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui"
+	xmlns:b="http://bootsfaces.net/ui"
 	template="/templates/template-general.xhtml">
 	<ui:define name="titulo">
 		VoterVote
 	</ui:define>
 	<ui:define name="cuerpo">
-		<ui:include src="/snippets/login-form.xhtml" />
+		<b:container layout="fluid">
+
+		<h:form>
+				<b:dataTable value="#{options.getVotableOptions(voter.configurationElection)}" var="option" styleClass="table table-striped table-bordered" style="width:100%">
+				  <h:column>
+				    <f:facet name="header">
+				      <h:outputText value="Nombre" />
+				    </f:facet>
+				    <h:outputText value="#{option.nombre}" />
+				  </h:column>
+				   <h:column>
+				    <f:facet name="header">
+				      <h:outputText value="Descripcion" />
+				    </f:facet>
+				    <h:outputText value="#{option.descripcion}" />
+				  </h:column>
+				  <h:column>
+				  <f:facet name="header">
+				      <h:outputText value="Votar" />
+				    </f:facet>
+				     	<h:outputText value="No se puede solicitar voto telematico" />
+				  </h:column>
+				 
+				</b:dataTable>
+		</h:form>
+					</b:container>
 	</ui:define>
 </ui:composition>
