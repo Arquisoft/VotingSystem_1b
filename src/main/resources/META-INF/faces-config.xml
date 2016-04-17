@@ -29,6 +29,14 @@
 		</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>options</managed-bean-name>
+		<managed-bean-class>
+			es.uniovi.asw.voter.vote.beans.BeanOptions
+		</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
 
 	<application>
 		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver
