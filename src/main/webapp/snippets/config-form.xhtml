@@ -41,13 +41,13 @@
   		<h:form>
 	  		<h:panelGroup>
 	  		<h:outputLabel for="opcionesVoto" value="Número de opciones de voto: " />
-	         <p:spinner id="opcionesVoto" action="#{configuration.opcionesVoto(5)}">
-	                <p:ajax execute="@form" render="inputs"/>
+	         <p:spinner id="opcionesVoto" value="#{configuration.numOptions}">
+	                <p:ajax listener="#{configuration.opcionesVoto()}" update="inputs" />
 	         </p:spinner>
 	        </h:panelGroup>
 	        <h:panelGroup id="inputs">		
-				<ui:repeat value="#{configuration.votableOptions}">
-		   			 <p:inputText value="Validar"></p:inputText>
+				<ui:repeat value="#{configuration.votableOptions}" var="o">
+		   			 <p:inputText value="#{o.nombre}"></p:inputText>
 				</ui:repeat>
 			</h:panelGroup>
 		</h:form>	

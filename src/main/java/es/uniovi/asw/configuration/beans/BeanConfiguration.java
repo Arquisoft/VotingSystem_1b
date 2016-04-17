@@ -1,7 +1,7 @@
 package es.uniovi.asw.configuration.beans;
 
 import java.io.Serializable;
-import java.util.Set;
+import java.util.ArrayList;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -21,7 +21,16 @@ public class BeanConfiguration extends ConfigurationElection implements Serializ
 	}
 
 	private static final long serialVersionUID = 6L;
+	private int numOptions;
 	
+	public int getNumOptions() {
+		return numOptions;
+	}
+
+	public void setNumOptions(int numOptions) {
+		this.numOptions = numOptions;
+	}
+
 	public String configura() {
 		WebApplicationContext ctx =  FacesContextUtils.getWebApplicationContext(FacesContext.getCurrentInstance());
 		SimpleConfigService service = ctx.getBean(SimpleConfigService.class);
@@ -37,9 +46,8 @@ public class BeanConfiguration extends ConfigurationElection implements Serializ
 		return null;
 		}
 	
-	public String opcionesVoto(int x) {
-		for(int i = 0; i<x; i++)
-		{
+	public String opcionesVoto() {
+		for(int i = 0; i<numOptions; i++){			
 			getVotableOptions().add(new VotableOption("","",this));
 		}
 		return null;		
