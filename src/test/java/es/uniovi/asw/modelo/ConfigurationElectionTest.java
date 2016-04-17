@@ -8,13 +8,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.OneToMany;
-
 import org.junit.Test;
 
 import es.uniovi.asw.dbupdate.model.ConfigurationElection;
 import es.uniovi.asw.dbupdate.model.ElectoralCollege;
-import es.uniovi.asw.dbupdate.model.TelematicVoter;
 import es.uniovi.asw.dbupdate.model.VotableOption;
 
 public class ConfigurationElectionTest {
