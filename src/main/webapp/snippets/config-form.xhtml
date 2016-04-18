@@ -33,14 +33,14 @@
         </b:row>
         
        	<b:row>
-			<p:outputLabel for="fechaInicioVoto" value="Inicio elecciones:" />
+			<p:outputLabel for="fechaInicioVoto" value="Inicio votaciones:" />
        		<p:calendar id="fechaInicioVoto" value="#{configuration.votationStart}" pattern="MM/dd/yyyy HH:mm:ss"
         		required="true" requiredMessage="Debe indicar una fecha de inicio" mindate ="#{configuration.hoy}"/>
 			<p:message for="fechaInicioVoto" />
         </b:row>
         
        	<b:row>
-			<p:outputLabel for="fechaFinVoto" value="Fin elecciones:" />
+			<p:outputLabel for="fechaFinVoto" value="Fin votaciones:" />
        		<p:calendar id="fechaFinVoto" value="#{configuration.votationEnd}" pattern="MM/dd/yyyy HH:mm:ss"
        		 	required="true" requiredMessage="Debe indicar una fecha de fin" mindate ="#{configuration.hoy}"/>
 			<p:message for="fechaFinVoto" />
@@ -64,9 +64,9 @@
 					<br/>
 					<p:separator/>
 					 <h:outputLabel for="nombreOpcion" value="Nombre: " />
-		   			 <p:inputText id="nombreOpcion" value="#{o.nombre}"></p:inputText>
+		   			 <b:inputText id="nombreOpcion" value="#{o.nombre}"></b:inputText>
 		   			  <h:outputLabel for="descripcionOpcion" value="Descripción: " />
-		   			 <p:inputTextarea rows="3" cols="25" id="descripcionOpcion" value="#{o.descripcion}"></p:inputTextarea> 
+		   			 <b:inputTextarea rows="3" cols="25" id="descripcionOpcion" value="#{o.descripcion}"></b:inputTextarea> 
 		   		</h:panelGroup>	 
 				</ui:repeat>
 			</h:panelGroup>
