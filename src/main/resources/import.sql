@@ -6,6 +6,6 @@ insert into VOTABLE_OPTION(id, descripcion, nombre, configuration_election_id) v
 
 INSERT INTO ELECTORAL_COLLEGE(id, CODIGO, CONFIGURATION_ELECTION_ID) values(1, '12', 1);
 
-insert into USUARIOS(id, CODIGO_COLEGIO_ID, PASS, ENAME, NAME, NIF) VALUES(1, 1, '12345', 'pepe@gmail.com', 'Pepe', '74213763W');
-insert into USUARIOS(id, CODIGO_COLEGIO_ID, PASS, ENAME, NAME, NIF) VALUES(2, 1, '12345', 'juan@gmail.com', 'Juan', '65432176T');
-
+insert into USUARIOS(id, CODIGO_COLEGIO_ID, PASS, ENAME, NAME, NIF,ADMIN) VALUES(1, 1, '12345', 'pepe@gmail.com', 'Pepe', '74213763W',0);
+insert into USUARIOS(id, CODIGO_COLEGIO_ID, PASS, ENAME, NAME, NIF,ADMIN) VALUES(2, 1, '12345', 'juan@gmail.com', 'Juan', '65432176T',0);
+insert into USUARIOS(id, CODIGO_COLEGIO_ID, PASS, ENAME, NAME, NIF,ADMIN) VALUES(3, 1, 'cambiar', 'administracion@juntaElectoral.es', 'Junta', '66666666A',1);
