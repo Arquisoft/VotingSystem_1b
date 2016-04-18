@@ -16,27 +16,63 @@ public class CargaVotosInput {
 	
 	@Cuando("^Entra en la web$")
 	public void entra_en_la_web() throws Throwable {
-		driver.get("http://localhost:8080/");
+		driver.get("http://localhost:8080/admin/index.xhtml");
+	}
+	
+	@Cuando("^Entra en la web again$")
+	public void entra_en_la_web_again() throws Throwable {
+		driver.get("http://localhost:8080/admin/index.xhtml");
 	}
 
+
+	@Entonces("^se valida con la cuenta \"([^\"]*)\" y password \"([^\"]*)\"$")
+	public void se_valida_con_la_cuenta_y_password(String arg1, String arg2) throws Throwable {
+		WebElement elemento2 = driver.findElement(By.id("input_form-cuerpo:email"));
+		elemento2.sendKeys(arg1);
+		elemento2 = driver.findElement(By.id("input_form-cuerpo:password"));
+		elemento2.sendKeys(arg2);
+		elemento2 = driver.findElement(By.className("solicitar"));
+		elemento2.click();
+	}
+
+	@Entonces("^se valida de nuevo con la cuenta \"([^\"]*)\" y password \"([^\"]*)\"$")
+	public void se_valida_de_nuevo_con_la_cuenta_y_password(String arg1, String arg2) throws Throwable {
+		WebElement elemento2 = driver.findElement(By.id("input_form-cuerpo:email"));
+		elemento2.sendKeys(arg1);
+		elemento2 = driver.findElement(By.id("input_form-cuerpo:password"));
+		elemento2.sendKeys(arg2);
+		elemento2 = driver.findElement(By.className("solicitar"));
+		elemento2.click();
+	}
+
+	@Entonces("^se valida incorrectamente con la cuenta \"([^\"]*)\" y password \"([^\"]*)\"$")
+	public void se_valida_incorrectamente_con_la_cuenta_y_password(String arg1, String arg2) throws Throwable {
+		WebElement elemento2 = driver.findElement(By.id("input_form-cuerpo:email"));
+		elemento2.sendKeys(arg1);
+		elemento2 = driver.findElement(By.id("input_form-cuerpo:password"));
+		elemento2.sendKeys(arg2);
+		elemento2 = driver.findElement(By.className("solicitar"));
+		elemento2.click();
+	}
+	
+	
+	
 	@Entonces("^Va a la zona de votaciones para gestionar$")
 	public void va_a_la_zona_de_votaciones_para_gestionar() throws Throwable {
-		SeleniumUtils.esperaCargaPagina(driver, "text", "Ir a realizar la solicitud", 2);
+	
 		List<WebElement> elementos = SeleniumUtils.esperaCargaPagina(driver, "id", "gestion", 2); 
 		elementos.get(0).click();
 	}
 
 	@Entonces("^Va a la zona de votaciones para gestionar de nuevo parasi gestionar una votacion que quiere$")
 	public void va_a_la_zona_de_votaciones_para_gestionar_de_nuevo_parasi_gestionar_una_votacion_que_quiere() throws Throwable {
-		driver.get("http://localhost:8080/");
-		SeleniumUtils.esperaCargaPagina(driver, "text", "Ir a realizar la solicitud", 2);
 		List<WebElement> elementos = SeleniumUtils.esperaCargaPagina(driver, "id", "gestion", 2); 
 		elementos.get(0).click();
 	}
 	
 	@Cuando("^entra en la web de nuevo$")
 	public void entra_en_la_web_de_nuevo() throws Throwable {
-		driver.get("http://localhost:8080/");
+		driver.get("http://localhost:8080/admin/index.xhtml");
 	}
 	
 	@Entonces("^decide gestionar una votacion que quiere$")
