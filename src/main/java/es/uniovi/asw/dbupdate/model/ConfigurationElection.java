@@ -32,7 +32,7 @@ public class ConfigurationElection {
 	@OneToMany(mappedBy="configurationElection")
 	private List<ElectoralCollege> electoralColleges;
 
-	ConfigurationElection(){
+	public ConfigurationElection(){
 
 	}
 	
