@@ -26,7 +26,7 @@ Para un despligue local se necesita la **[base de datos HSQLDB](#URL)**, ejecuta
 Puede descargarse desde [aqui](https://drive.google.com/open?id=0B-BDcJOyciIGekhBZDBIX20wZ1E).
 
 # Test
-Para lanzar los test utilizamos una base de datos en memoria H2, por lo simplemente hay que ejecutar **mvn test**.
+Para lanzar los test utilizamos una base de datos en memoria H2, por lo que simplemente hay que ejecutar **mvn test**.
 
 # Autores
 
