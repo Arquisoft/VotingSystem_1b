@@ -15,9 +15,10 @@ VotingSystem_1b es un sistema de votación telemática que permite:
 
 El sistema permite cargar los datos del censo para las votaciones mediante la herramienta [censuses_1b](https://github.com/Arquisoft/censuses_1b).
 
-# Despligue 
+# Despliegue
 ## En la nube
-Simplemente hay que pulsar el botón
+Simplemente hay que pulsar el botón o visitar [la versión de master ya desplegada](http://voting-system-1b.herokuapp.com).
+
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 ## Local
