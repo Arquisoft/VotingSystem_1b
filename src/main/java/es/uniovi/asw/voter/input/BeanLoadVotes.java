@@ -48,9 +48,16 @@ public class BeanLoadVotes {
 			boolean fail = false;
 			WebApplicationContext ctx =  FacesContextUtils.getWebApplicationContext(FacesContext.getCurrentInstance());
 			VoteInputService vvs = ctx.getBean(VoteInputService.class);
-			//TODO comprobar si es admin
-		;
+			
 			try {
+				
+				for(int i=0;i<votos.size();i++){
+					if(votos.get(i).getCantidad()<0){
+						throw new BusinessException("Hay algun voto negativo en la lista de opciones");
+					}
+					
+				}
+			
 				
 			for(int i=0;i<votos.size();i++){
 				vvs.loadVoteForOption(configurationElection, votos.get(i),email, password);
