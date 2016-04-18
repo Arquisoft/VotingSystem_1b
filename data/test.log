@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*C52*/SET SCHEMA PUBLIC
 alter table electoral_college drop constraint FK_nhetwij9pikme8nkndt7d8flh
 alter table votable_option drop constraint FK_i426giixuf6srm8mmyrebkyj0
@@ -90,3 +91,5 @@ DISCONNECT
 /*C61*/SET SCHEMA PUBLIC
 DISCONNECT
 /*C62*/DISCONNECT
+=======
+>>>>>>> origin/master

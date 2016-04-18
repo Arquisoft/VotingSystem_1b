@@ -167,6 +167,7 @@ public class ConfigurationElection {
 	public ConfigurationElection getConfigurationElection() {
 		return this;
 	}
+
 	public boolean isOpenForApply(){
 		return new Date().after(applicationStart) && new Date().before(applicationEnd);
 	}

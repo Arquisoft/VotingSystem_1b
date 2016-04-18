@@ -32,7 +32,7 @@ import es.uniovi.asw.util.SeleniumUtils;
 @WebAppConfiguration
 public class Configuration {
 
-	private WebDriver driver = CucumberTest.getDriver("Configuration");
+	private WebDriver driver = SeleniumUtils.getDriver("Configuration");
 	
 	@Cuando("^entra en /admin/configuration\\.xhtml$")
 	public void entra_en_admin_configuration_xhtml() throws Throwable {
@@ -41,7 +41,7 @@ public class Configuration {
 
 	@Entonces("^se ven las opciones disponibles$")
 	public void se_ven_las_opciones_disponibles() throws Throwable {
-		SeleniumUtils.EsperaCargaPaginaNoTexto(driver, "nombre", 2);
+		SeleniumUtils.esperaCargaPaginaNoTexto(driver, "nombre", 2);
 	}
 
 	@Entonces("^elige las opciones dejando campos vacios y hace click en validar$")
@@ -56,7 +56,7 @@ public class Configuration {
 	public void se_le_muestra_un_mensaje_que_indica_que_debe_cubrir_todos_los_campos() throws Throwable {
 		//SeleniumUtils.EsperaCargaPaginaNoTexto(driver, "form-cuerpo:j_idt16", 9);
 		//SeleniumUtils.textoPresentePagina(driver, "Debe indicar una fecha de inicio");
-		CucumberTest.finishTest(driver);
+		SeleniumUtils.finishTest(driver);
 	}
 
 

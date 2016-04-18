@@ -29,6 +29,22 @@
 		</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>cargaVotos</managed-bean-name>
+		<managed-bean-class>
+			 es.uniovi.asw.voter.input.BeanLoadVotes
+		</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>options</managed-bean-name>
+		<managed-bean-class>
+			es.uniovi.asw.voter.vote.beans.BeanOptions
+		</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
 
 	<application>
 		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver
@@ -49,6 +65,10 @@
 		<navigation-case>
 			<from-outcome>vote</from-outcome>
 			<to-view-id>/vote/index.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>gestion</from-outcome>
+			<to-view-id>/admin/LoadVotos.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 
