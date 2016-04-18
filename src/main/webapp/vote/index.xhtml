@@ -27,7 +27,7 @@
 	          			</b:inputSecret>
 				    </b:column>
 				</b:row>
-				<b:commandButton 
+				<h:commandButton 
 			         		id="confirmar-voto"
 			         		value="Confirmar voto" 
 			         		actionListener="#{options.vote()}"
@@ -62,7 +62,7 @@
 				  <f:facet name="header">
 				      <h:outputText value="Votar" />
 				    </f:facet>
-				    <b:button value="Votar" onclick="ajax:#{options.setSelectOption(option)};$('.modalPseudoClass').modal();return false;"/>
+				    <b:button id="votar" value="Votar" onclick="ajax:#{options.setSelectOption(option)};$('.modalPseudoClass').modal();return false;"/>
 
 				  </h:column>
 				 

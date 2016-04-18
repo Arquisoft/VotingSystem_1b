@@ -23,7 +23,7 @@ public class VoteApplication {
 
 	private WebDriver driver = SeleniumUtils.getDriver("VoteApplication");
 	
-	@Cuando("^entra en /$")
+	@Cuando("^entra en la web$")
 	public void entra_en() throws Throwable {
 		driver.get("http://localhost:8080/");
 	}
@@ -39,39 +39,25 @@ public class VoteApplication {
 		elementos.get(0).click();
 	}
 
-	@Entonces("^se le piden sus datos\\(correctos\\) para finalizar la votacion$")
+	@Entonces("^se le piden sus datos para solicitar el voto telematico$")
 	public void se_le_piden_sus_datos_correctos_para_finalizar_la_votacion() throws Throwable {
 		SeleniumUtils.esperaCargaPagina(driver, "text", "VoteApplication", 2); 
-		rellenarFormulario("pepe@gmail.com", "12345");
 	}
 
-	@Entonces("^se le piden sus datos\\(incorrectos\\) para finalizar la votacion$")
-	public void se_le_piden_sus_datos_incorrectos_para_finalizar_la_votacion() throws Throwable {
-		SeleniumUtils.esperaCargaPagina(driver, "text", "VoteApplication", 2); 
-		rellenarFormulario("pepe@pepe.com", "12345");
-	}
-
-	@Y("^al ser correctos se le indica con un mensaje$")
-	public void al_ser_correctos_se_le_indica_con_un_mensaje() throws Throwable {
-		SeleniumUtils.esperaCargaPagina(driver, "text", "Voto telematico admitido", 2); 
-		SeleniumUtils.finishTest(driver);
-	}
-
-	@Entonces("^al ser incorrectos se le indica con un mensaje$")
-	public void al_ser_incorrectos_se_le_indica_con_un_mensaje() throws Throwable {
-		SeleniumUtils.esperaCargaPagina(driver, "text", "Correo electronico y/o contraseña incorrectos", 2); 
-		SeleniumUtils.finishTest(driver);
-	}
-
-	private void rellenarFormulario(String email, String password) {
+	@Entonces("^introduce su email \"([^\"]*)\" y password \"([^\"]*)\"$")
+	public void introduce_su_email_y_password(String email, String password) throws Throwable {
 		WebElement elemento = driver.findElement(By.id("input_form-cuerpo:email"));
 		elemento.sendKeys(email);
 		elemento = driver.findElement(By.id("input_form-cuerpo:password"));
 		elemento.sendKeys(password);
 		elemento = driver.findElement(By.id("form-cuerpo:solicitar"));
 		elemento.click();
-
 	}
-
+	
+	@Entonces("^se le muestra el mensaje \"([^\"]*)\" referente al voto telematico$")
+	public void se_le_muestra_el_mensaje_referente_al_voto_telematico(String mensaje) throws Throwable {
+		SeleniumUtils.esperaCargaPagina(driver, "text", mensaje, 2); 
+		SeleniumUtils.finishTest(driver);
+	}
 
 }

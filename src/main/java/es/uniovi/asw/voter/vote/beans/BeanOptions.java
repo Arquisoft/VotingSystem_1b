@@ -66,10 +66,9 @@ public class BeanOptions {
 	        fail=true;
 		}
 		if(!fail){
-			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "", "Ha votado correctamenta");
+			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "", "Ha votado correctamente");
 	        FacesContext.getCurrentInstance().addMessage("form-cuerpo:all", msg);
 		}
-		System.out.println("voto:" + fail);
 	}
 
 }
