@@ -5,6 +5,7 @@ import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
+import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.jsf.FacesContextUtils;
 
@@ -17,11 +18,13 @@ import es.uniovi.asw.voter.vote.bussiness.VoterVoteService;
 import es.uniovi.asw.voter.vote.exception.AlredyVotedException;
 import es.uniovi.asw.voter.vote.exception.BusinessException;
 
+
+@Component
 public class BeanLoadOptions {
 	
 		
 		private List<VotableOption> selectOption;
-		private List<Integer> cantidades;
+		private List<Vote> votos;
 		private ConfigurationElection configurationElection;
 
 		
@@ -40,7 +43,7 @@ public class BeanLoadOptions {
 			VoteInputService vvs = ctx.getBean(VoteInputService.class);
 			try {
 			for(int i=0;i<selectOption.size();i++){
-				vvs.loadVoteForOption(configurationElection, new Vote(new Date(), selectOption.get(i), cantidades.get(i)));
+				vvs.loadVoteForOption(configurationElection, votos.get(i));
 				
 				
 			}
