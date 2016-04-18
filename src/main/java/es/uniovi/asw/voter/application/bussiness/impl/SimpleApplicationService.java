@@ -26,11 +26,16 @@ public class SimpleApplicationService implements ApplicationService {
 	@Override
 	public void saveApplication(String email, String password,
 			ConfigurationElection configurationElection) throws InvalidUserException {
+		
 
 		User user = ud.findByMailAndContrasena(email, password);
+		
+		if(td.findByUserAndConfigurationElection(user, configurationElection) != null){
+			throw new InvalidUserException("Ya solicito el voto tematico");
+		}
 
 		if(user == null){
-			throw new InvalidUserException();
+			throw new InvalidUserException("Correo electronico y/o contraseña incorrectos");
 		}
 
 		TelematicVoter telematic = new TelematicVoter(user, false, configurationElection);

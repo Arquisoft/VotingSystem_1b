@@ -16,7 +16,6 @@ import es.uniovi.asw.dbupdate.model.Vote;
 import es.uniovi.asw.voter.application.exception.InvalidUserException;
 import es.uniovi.asw.voter.vote.bussiness.VoteInputService;
 import es.uniovi.asw.voter.vote.bussiness.VoterVoteService;
-import es.uniovi.asw.voter.vote.exception.AlredyVotedException;
 import es.uniovi.asw.voter.vote.exception.BusinessException;
 
 
