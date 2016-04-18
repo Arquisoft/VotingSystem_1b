@@ -29,9 +29,18 @@ public class User {
 	private String contrasena;
 	@OneToMany(mappedBy="user")
 	private List<TelematicVoter> telematicVote;
+	@Column(name="admin")
+	private boolean admin;
+	
 	
 
-	User(){ }
+	public boolean isAdmin() {
+		return admin;
+	}
+
+	User(){
+		admin=false;
+	}
 
 	public User(String nombre, String mail, String nif, ElectoralCollege codigoColegio){
 		super();
@@ -39,6 +48,7 @@ public class User {
 		this.mail=mail;
 		this.nif=nif;
 		this.codigoColegio=codigoColegio;			
+		this.admin=false;
 	}
 
 	public String getNombre() {
