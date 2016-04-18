@@ -19,7 +19,7 @@ public class CargaVotosInput {
 		driver.get("http://localhost:8080/admin/index.xhtml");
 	}
 	
-	@Cuando("^Entra en la web again$")
+	@Cuando("^entra en la web de administracion$")
 	public void entra_en_la_web_again() throws Throwable {
 		driver.get("http://localhost:8080/admin/index.xhtml");
 	}
@@ -55,7 +55,12 @@ public class CargaVotosInput {
 		elemento2.click();
 	}
 	
-	
+	@Entonces("^se me muestra el mensaje \"([^\"]*)\" por login malo$")
+	public void se_me_muestra_el_mensaje_por_login_malo(String arg1) throws Throwable {
+		SeleniumUtils.esperaCargaPagina(driver, "text", arg1, 2);
+	    
+	    SeleniumUtils.finishTest(driver);
+	}
 	
 	@Entonces("^Va a la zona de votaciones para gestionar$")
 	public void va_a_la_zona_de_votaciones_para_gestionar() throws Throwable {
@@ -96,7 +101,6 @@ public class CargaVotosInput {
 
 	@Entonces("^se le muestra el mensaje \"([^\"]*)\" en voteInput$")
 	public void se_le_muestra_el_mensaje_en_voteInput(String arg1) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
 		SeleniumUtils.esperaCargaPagina(driver, "text", arg1, 2);
 	    
 	    SeleniumUtils.finishTest(driver);
@@ -104,7 +108,6 @@ public class CargaVotosInput {
 
 	@Entonces("^se le muestra el mensaje \"([^\"]*)\"  al no ser admin$")
 	public void se_le_muestra_el_mensaje_al_no_ser_admin(String arg1) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
 		SeleniumUtils.esperaCargaPagina(driver, "text", arg1, 2);
 	    
 	    SeleniumUtils.finishTest(driver);
