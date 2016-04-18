@@ -27,9 +27,10 @@ public class BeanLoadVotes {
 	
 		private List<Vote> votos;
 		private ConfigurationElection configurationElection;
-
+		private String email;
+		private String password;
 		
-		public List<Vote> getVotableOptions(ConfigurationElection configurationElection) {
+		public List<Vote> getVotes(ConfigurationElection configurationElection) {
 			WebApplicationContext ctx =  FacesContextUtils.getWebApplicationContext(FacesContext.getCurrentInstance());
 			VoterVoteService vvs = ctx.getBean(VoterVoteService.class);
 			this.configurationElection = configurationElection;
@@ -47,15 +48,18 @@ public class BeanLoadVotes {
 			boolean fail = false;
 			WebApplicationContext ctx =  FacesContextUtils.getWebApplicationContext(FacesContext.getCurrentInstance());
 			VoteInputService vvs = ctx.getBean(VoteInputService.class);
+			//TODO comprobar si es admin
+		;
 			try {
+				
 			for(int i=0;i<votos.size();i++){
-				vvs.loadVoteForOption(configurationElection, votos.get(i));
+				vvs.loadVoteForOption(configurationElection, votos.get(i),email, password);
 				
 				
 			}
 			
 			
-			} catch ( BusinessException
+			} catch ( BusinessException | InvalidUserException
 					e) {
 				FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "", e.getMessage());
 		        FacesContext.getCurrentInstance().addMessage("form-cuerpo:all", msg);

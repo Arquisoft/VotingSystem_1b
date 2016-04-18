@@ -27,9 +27,13 @@ public class VoteInputService {
 	@Autowired(required=true)
 	private VoteDAO votoDao;
 	
-	public void loadVoteForOption(ConfigurationElection c, Vote v) throws BusinessException{
+	public void loadVoteForOption(ConfigurationElection c, Vote v, String email, String password) throws BusinessException, InvalidUserException{
 		
-	
+		User user = ud.findByMailAndContrasena(email, password);
+
+		if(user == null || !user.isAdmin()){
+			throw new InvalidUserException("Usuario incorrecto.");
+		}
 		
 		votoDao.save(v);
 		
