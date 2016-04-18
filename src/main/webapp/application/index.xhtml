@@ -9,8 +9,10 @@
 		VoteApplication para #{voter.configurationElection.name}
 	</ui:define>
 	<ui:define name="cuerpo">
-			<b:container layout="fluid">
-				<h:message for=""/>
+			<b:container layout="fluid" id="all">
+				<b:row>
+					<b:message for="all" />
+				</b:row>
 				<b:row>
 				    <b:column span="4" offset="4">
 				    	<b:inputText placeholder="Correo electronico" required="true" id="email" value="#{voteApplication.email}">
