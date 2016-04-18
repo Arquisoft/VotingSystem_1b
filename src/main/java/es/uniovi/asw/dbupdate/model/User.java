@@ -1,5 +1,6 @@
 package es.uniovi.asw.dbupdate.model;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -27,7 +28,7 @@ public class User {
 		@Column(name="pass")
 		private String contrasena;
 		@OneToMany(mappedBy="user")
-		private Set<TelematicVoter> telematicVote;
+		private List<TelematicVoter> telematicVote;
 		
 		@Override
 		public int hashCode() {
@@ -108,10 +109,10 @@ public class User {
 		public void setContrasena(String contrasena) {
 			this.contrasena=contrasena;
 		}
-		public Set<TelematicVoter> getTelematicVote() {
+		public List<TelematicVoter> getTelematicVote() {
 			return telematicVote;
 		}
-		public void setTelematicVote(Set<TelematicVoter> telematicVote) {
+		public void setTelematicVote(List<TelematicVoter> telematicVote) {
 			this.telematicVote = telematicVote;
 		}
 
