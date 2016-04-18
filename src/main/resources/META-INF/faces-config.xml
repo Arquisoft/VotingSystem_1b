@@ -45,6 +45,14 @@
 		</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>validator</managed-bean-name>
+		<managed-bean-class>
+			es.uniovi.asw.validator.beans.BeanValidator
+		</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
 
 	<application>
 		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver
@@ -66,6 +74,19 @@
 			<from-outcome>vote</from-outcome>
 			<to-view-id>/vote/index.xhtml</to-view-id>
 		</navigation-case>
+		
+		
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/admin/index.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>exito</from-outcome>
+			<to-view-id>/admin/list.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/admin/list.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>gestion</from-outcome>
 			<to-view-id>/admin/LoadVotos.xhtml</to-view-id>
