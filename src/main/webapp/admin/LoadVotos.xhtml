@@ -13,14 +13,14 @@
 				
 				<b:row>
 				    <b:column >
-				    	<b:inputText placeholder="Correo electronico" required="true" id="email" value="#{options.email}">
+				    	<b:inputText placeholder="Correo electronico" required="true" id="email" value="#{cargaVotos.email}">
 				            <f:facet name="prepend">
 				              <b:icon name="user" />
 				            </f:facet>
 				        </b:inputText>
 				    </b:column>
 				    <b:column >
-				    	<b:inputSecret placeholder="Contraseña" id="password" value="#{options.password}">
+				    	<b:inputSecret placeholder="Contraseña" id="password" value="#{cargaVotos.password}">
 				            <f:facet name="prepend">
 				              <b:iconAwesome name="key" />
 				            </f:facet>
@@ -63,7 +63,7 @@
 				</h:column>
 				 
 				</b:dataTable>
-				 <b:button id="votar" value="Cargar Votos" onclick="$('.modalPseudoClass').modal();return false;"/>
+				 <b:button id="votar" class="miClaseParaSelenium" value="Cargar Votos" onclick="$('.modalPseudoClass').modal();return false;"/>
 					</b:container>
 	</ui:define>
 </ui:composition>

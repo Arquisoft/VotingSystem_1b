@@ -27,8 +27,24 @@ public class BeanLoadVotes {
 		private List<Vote> votos;
 		private ConfigurationElection configurationElection;
 		private String email;
+		public String getEmail() {
+			return email;
+		}
+
+		public void setEmail(String email) {
+			this.email = email;
+		}
+
 		private String password;
 		
+		public String getPassword() {
+			return password;
+		}
+
+		public void setPassword(String password) {
+			this.password = password;
+		}
+
 		public List<Vote> getVotes(ConfigurationElection configurationElection) {
 			WebApplicationContext ctx =  FacesContextUtils.getWebApplicationContext(FacesContext.getCurrentInstance());
 			VoterVoteService vvs = ctx.getBean(VoterVoteService.class);
@@ -72,7 +88,7 @@ public class BeanLoadVotes {
 		        fail=true;
 			}
 			if(!fail){
-				FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "", "Carga de datos correcta");
+				FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "", "Carga de votos correcta");
 		        FacesContext.getCurrentInstance().addMessage("form-cuerpo:all", msg);
 			}
 		}
