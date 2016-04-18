@@ -4,53 +4,53 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:b="http://bootsfaces.net/ui">
-	<b:panelGrid id="Grid" columns="2" cellpadding="5" colSpans="12">
+	<b:container>
 	
-		<h:panelGroup>
+		<b:row>
 			<p:outputLabel for="nombre" value="Nombre:" />
        		<b:inputText id="nombre" value="#{configuration.name}" required="true" 
        		requiredMessage="Debe indicar un nombre"/>
 			<p:message for="nombre" />
-        </h:panelGroup>
-       <b:column/>
-        <h:panelGroup>
+        </b:row>
+        <b:row>
 			<p:outputLabel for="descripcion" value="Descripción:" />
        		<b:inputTextarea rows="3" cols="25" id="descripcion" value="#{configuration.description}"></b:inputTextarea>
 			<p:message for="descripcion" />
-        </h:panelGroup>
+        </b:row>
 		
-		<h:panelGroup>
+		<b:row>
 			<p:outputLabel for="fechaInicioApp" value="Inicio periodo solicitud:" />
        		<p:calendar id="fechaInicioApp" value="#{configuration.applicationStart}" pattern="MM/dd/yyyy HH:mm:ss"
         		required="true" requiredMessage="Debe indicar una fecha de inicio" mindate ="#{configuration.hoy}"/>
 			<p:message for="fechaInicioApp" />
-        </h:panelGroup>
+        </b:row>
         
-        <h:panelGroup>
+        <b:row>
 			<p:outputLabel for="fechaFinApp" value="Fin periodo solicitud:" />
        		<p:calendar id="fechaFinApp" value="#{configuration.applicationEnd}" pattern="MM/dd/yyyy HH:mm:ss"
        		 	required="true" requiredMessage="Debe indicar una fecha de fin" mindate ="#{configuration.hoy}"/>
 			<p:message for="fechaFinApp" />
-        </h:panelGroup>
+        </b:row>
         
-        <h:panelGroup>
+       	<b:row>
 			<p:outputLabel for="fechaInicioVoto" value="Inicio elecciones:" />
        		<p:calendar id="fechaInicioVoto" value="#{configuration.votationStart}" pattern="MM/dd/yyyy HH:mm:ss"
         		required="true" requiredMessage="Debe indicar una fecha de inicio" mindate ="#{configuration.hoy}"/>
 			<p:message for="fechaInicioVoto" />
-        </h:panelGroup>
+        </b:row>
         
-        <h:panelGroup>
+       	<b:row>
 			<p:outputLabel for="fechaFinVoto" value="Fin elecciones:" />
        		<p:calendar id="fechaFinVoto" value="#{configuration.votationEnd}" pattern="MM/dd/yyyy HH:mm:ss"
        		 	required="true" requiredMessage="Debe indicar una fecha de fin" mindate ="#{configuration.hoy}"/>
 			<p:message for="fechaFinVoto" />
-        </h:panelGroup>
+        </b:row>
         
-        <h:panelGroup>
-       		<h:outputLabel for="elCheck" value="Voto múltiple: " />
+        <b:row>
+       		<p:outputLabel for="elCheck" value="Voto múltiple: " />
        		<b:selectBooleanCheckbox id="elCheck" value="#{configuration.multipleVoting}" />
-  		</h:panelGroup>
+  		</b:row>
+
   		<h:form>
 	  		<h:panelGroup>
 	  		<h:outputLabel for="opcionesVoto" value="Número de opciones de voto: " />
@@ -71,10 +71,11 @@
 				</ui:repeat>
 			</h:panelGroup>
 		</h:form>	
-		<b:commandButton value="Validar" actionListener="#{configuration.configura}"
+
+		<p:commandButton value="Validar" actionListener="#{configuration.configura}"
 			update="@all" process="@form">
-		</b:commandButton>
-	</b:panelGrid>
+		</p:commandButton>
+	</b:container>
 	<p:separator />
 	<p:messages for="laInfo" showDetail="true" autoUpdate="true"
 			closable="true" />
