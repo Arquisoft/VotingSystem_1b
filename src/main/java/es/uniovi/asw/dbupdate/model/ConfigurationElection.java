@@ -1,5 +1,6 @@
 package es.uniovi.asw.dbupdate.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -28,7 +29,7 @@ public class ConfigurationElection {
 	@OneToMany(mappedBy="configurationElection")
 	private List<TelematicVoter> telematicVote;
 	@OneToMany(mappedBy="configurationElection")
-	private List<VotableOption> votableOptions;
+	private List<VotableOption> votableOptions = new ArrayList<VotableOption>();
 	@OneToMany(mappedBy="configurationElection")
 	private List<ElectoralCollege> electoralColleges;
 
@@ -163,6 +164,10 @@ public class ConfigurationElection {
 		this.multipleVoting = multipleVoting;
 	}
 	
+	public ConfigurationElection getConfigurationElection() {
+		return this;
+	}
+
 	public boolean isOpenForApply(){
 		return new Date().after(applicationStart) && new Date().before(applicationEnd);
 	}

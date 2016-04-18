@@ -19,9 +19,7 @@ public class SimpleConfigService implements ConfigService {
 	@Override
 	public void saveConfiguration(ConfigurationElection config)throws PersistenceException {
 		try{
-			System.out.println("GUARDANDO LA CONFIGURACIÓN");//Borrar
 			dao.save(config);
-			System.out.println("GUARDADO");//Borrar
 		}catch(PersistenceException e){
 			throw new PersistenceException("Error al crear la configuración",e);
 		}
