@@ -29,6 +29,7 @@ public class User {
 	private String contrasena;
 	@OneToMany(mappedBy="user")
 	private List<TelematicVoter> telematicVote;
+	
 
 	User(){ }
 

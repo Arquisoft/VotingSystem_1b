@@ -3,13 +3,12 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:b="http://bootsfaces.net/ui"
 	template="/templates/template-general.xhtml">
 	<ui:define name="titulo">
-		VoterVote
+		VoterInput
 	</ui:define>
 	<ui:define name="cuerpo">
-	<b:modal id="amodal" title="Introduce tus datos" styleClass="modalPseudoClass">
+	<b:modal id="amodal" title="Introduce datos de administracion" styleClass="modalPseudoClass">
 				
 				<b:row>
 				    <b:column >
@@ -29,7 +28,7 @@
 				</b:row>
 				<h:commandButton 
 			         		id="confirmar-voto"
-			         		value="Confirmar cantidad de votos" 
+			         		value="Confirmar voto" 
 			         		actionListener="#{options.vote()}"
 			         		look="primary" 
 			         		style="width:100%" 
@@ -68,5 +67,4 @@
 				 
 				</b:dataTable>
 					</b:container>
-	</ui:define>
 </ui:composition>

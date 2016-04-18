@@ -1,4 +1,5 @@
 package es.uniovi.asw.voter.input;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -20,21 +21,26 @@ import es.uniovi.asw.voter.vote.exception.BusinessException;
 
 
 @Component
-public class BeanLoadOptions {
+public class BeanLoadVotes {
 	
 		
-		private List<VotableOption> selectOption;
+	
 		private List<Vote> votos;
 		private ConfigurationElection configurationElection;
 
 		
-		public List<VotableOption> getVotableOptions(ConfigurationElection configurationElection) {
+		public List<Vote> getVotableOptions(ConfigurationElection configurationElection) {
 			WebApplicationContext ctx =  FacesContextUtils.getWebApplicationContext(FacesContext.getCurrentInstance());
 			VoterVoteService vvs = ctx.getBean(VoterVoteService.class);
 			this.configurationElection = configurationElection;
 			
-			selectOption=vvs.getVotableOptions(configurationElection);
-			return selectOption;
+			List<VotableOption> miLista=vvs.getVotableOptions(configurationElection);
+			votos=new ArrayList<Vote>();
+			Date d= new Date();
+			for(VotableOption v: miLista){
+				votos.add(new Vote(d, v, 0));
+			}
+			return votos;
 		}
 		
 		public void loadVote(){
@@ -42,7 +48,7 @@ public class BeanLoadOptions {
 			WebApplicationContext ctx =  FacesContextUtils.getWebApplicationContext(FacesContext.getCurrentInstance());
 			VoteInputService vvs = ctx.getBean(VoteInputService.class);
 			try {
-			for(int i=0;i<selectOption.size();i++){
+			for(int i=0;i<votos.size();i++){
 				vvs.loadVoteForOption(configurationElection, votos.get(i));
 				
 				

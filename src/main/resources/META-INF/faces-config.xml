@@ -31,6 +31,14 @@
 	</managed-bean>
 	
 	<managed-bean>
+		<managed-bean-name>cargaVotos</managed-bean-name>
+		<managed-bean-class>
+			es.uniovi.asw.voter.vote.input.BeanLoadVotes
+		</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+	<managed-bean>
 		<managed-bean-name>options</managed-bean-name>
 		<managed-bean-class>
 			es.uniovi.asw.voter.vote.beans.BeanOptions
