@@ -91,6 +91,10 @@
 			<from-outcome>gestion</from-outcome>
 			<to-view-id>/admin/LoadVotos.xhtml</to-view-id>
 		</navigation-case>
+		<navigation-case>
+			<from-outcome>nueva</from-outcome>
+			<to-view-id>/admin/configuration.xhtml</to-view-id>
+		</navigation-case>
 	</navigation-rule>
 
 
