@@ -23,6 +23,7 @@ Simplemente hay que pulsar el botón o visitar [la versión de master ya despleg
 
 ## Local
 Para un despligue local se necesita la **[base de datos HSQLDB](#URL)**, ejecutar el comando **mvn spring-boot:run** y entrar en la dirección [http://localhost:8080](http://localhost:8080) del navegador.
+Puede descargarse desde [aqui](https://drive.google.com/open?id=0B-BDcJOyciIGekhBZDBIX20wZ1E).
 
 # Test
 Para lanzar los test utilizamos una base de datos en memoria H2, por lo simplemente hay que ejecutar **mvn test**.
