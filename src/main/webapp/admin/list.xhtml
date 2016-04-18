@@ -28,33 +28,28 @@
 				    </f:facet>
 				    <h:outputText value="#{option.description}" />
 				  </h:column>
-				  <h:column>
+				  
+				   <h:column>
 				  <f:facet name="header">
-				      <h:outputText value="Solicitar voto electronico" />
-				    </f:facet>
-				    <h:commandLink
-				    	id="apply"
-				    	rendered="#{option.isOpenForApply()}"
-				    	action="apply"
-				    	actionListener="#{voter.setConfigurationElection(option)}"
-				     	value="Ir a realizar la solicitud" />
-				     	<h:outputText rendered="#{!option.isOpenForApply()}" value="No se puede solicitar voto telematico" />
-				  </h:column>
-				  <h:column>
-				  <f:facet name="header">
-				      <h:outputText value="Votar" />
+				      <h:outputText value="Gestionar" />
 				    </f:facet>
 				     <h:commandLink
-				     	id="vote"
+				     	id="gestion"
 				    	rendered="#{option.isOpenForVote()}"
-				    	action="vote"
+				    	action="gestion"
 				    	actionListener="#{voter.setConfigurationElection(option)}"
-				     	value="Ir a votar" />
-				     	<h:outputText rendered="#{!option.isOpenForVote()}" value="No se puede votar" />
+				     	value="gestion" />
+				     
 				  </h:column>
 				 
 				</b:dataTable>
-		</h:form>
+		
+
+		<h:commandLink
+				     	id="nueva"
+				    	action="nueva"
+				     	value="Configurar nueva votacion" />
+				     	</h:form>
 					</b:container>
 
 

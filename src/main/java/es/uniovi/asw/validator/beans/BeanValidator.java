@@ -1,18 +1,15 @@
-package es.uniovi.asw.voter.application.beans;
+package es.uniovi.asw.validator.beans;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
-import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.jsf.FacesContextUtils;
 
-import es.uniovi.asw.dbupdate.model.ConfigurationElection;
-import es.uniovi.asw.voter.application.bussiness.impl.SimpleApplicationService;
+import es.uniovi.asw.validator.bussiness.ValidatorService;
 import es.uniovi.asw.voter.application.exception.InvalidUserException;
 
-@Component
-public class BeanApplication {
+public class BeanValidator {
 	
 	private String email;
 	private String password;
@@ -30,22 +27,19 @@ public class BeanApplication {
 		this.password = password;
 	}
 	
-	public void apply(ConfigurationElection configurationElection){
-		boolean fail = false;
+	public String validar(){
 		WebApplicationContext ctx =  FacesContextUtils.getWebApplicationContext(FacesContext.getCurrentInstance());
-		SimpleApplicationService sas = ctx.getBean(SimpleApplicationService.class);
+		ValidatorService vs = ctx.getBean(ValidatorService.class);
 		
 		try {
-			sas.saveApplication(email, password, configurationElection);
+			vs.validar(email, password);
 		} catch (InvalidUserException e) {
 			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "", e.getMessage());
-            FacesContext.getCurrentInstance().addMessage("form-cuerpo:all", msg);
-            fail = true;
-		}
-		if(!fail){
-			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "", "Voto telematico admitido");
 	        FacesContext.getCurrentInstance().addMessage("form-cuerpo:all", msg);
+			return "fracaso";
 		}
+		
+		return "exito";
 	}
 
 }
