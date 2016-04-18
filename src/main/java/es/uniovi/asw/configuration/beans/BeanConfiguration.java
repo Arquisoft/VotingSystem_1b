@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
@@ -18,12 +19,20 @@ import es.uniovi.asw.dbupdate.model.VotableOption;
 
 @Component
 public class BeanConfiguration extends ConfigurationElection implements Serializable {
+	
 	public BeanConfiguration() {
 		super();
 	}
 
+	@PostConstruct
+	public void init() {
+		getVotableOptions().add(new VotableOption("","",this));	
+		getVotableOptions().add(new VotableOption("","",this));		
+	}
+	
 	private static final long serialVersionUID = 6L;
 	private int numOptions = 2;
+	private int numOptionsOld = 2;
 	private Date hoy = new Date ();
 	
 	public int getNumOptions() {
@@ -44,8 +53,8 @@ public class BeanConfiguration extends ConfigurationElection implements Serializ
 					getApplicationEnd(), getVotationStart(), getVotationEnd(), getVotableOptions(), getElectoralColleges(),
 					isMultipleVoting());
 			relacionaOpcionesVotoConf(getVotableOptions(), conf);
-			serviceVo.saveVotableOption(getVotableOptions());
 			serviceConfig.saveConfiguration(conf);
+			serviceVo.saveVotableOption(getVotableOptions());
 			fc.addMessage("laInfo", new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Se ha guardado su configuración."));
 			} catch (Exception e) {
 				fc.addMessage("elError", new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Error al guardar la configuración"));
@@ -56,12 +65,16 @@ public class BeanConfiguration extends ConfigurationElection implements Serializ
 		}
 	
 	public String opcionesVoto() {
-		getVotableOptions().clear();
-		for(int i = 0; i<numOptions; i++){			
-			getVotableOptions().add(new VotableOption("","",this));
-		}
+		if(numOptions > numOptionsOld)
+			for(int i = 0; i<(numOptions-numOptionsOld); i++)	
+				getVotableOptions().add(new VotableOption("","",this));	
+		else
+			for(int i = 0; i<(numOptionsOld-numOptions); i++)		
+				getVotableOptions().remove(getVotableOptions().size() - 1);
+		numOptionsOld = numOptions;
 		return null;		
 	}
+	
 
 	public Date getHoy() {
 		return hoy;

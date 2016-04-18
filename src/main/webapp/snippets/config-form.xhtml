@@ -4,18 +4,18 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:b="http://bootsfaces.net/ui">
-	<p:panelGrid id="Grid" columns="2" cellpadding="5">
+	<b:panelGrid id="Grid" columns="2" cellpadding="5" colSpans="12">
 	
 		<h:panelGroup>
 			<p:outputLabel for="nombre" value="Nombre:" />
-       		<p:inputText id="nombre" value="#{configuration.name}" required="true" 
+       		<b:inputText id="nombre" value="#{configuration.name}" required="true" 
        		requiredMessage="Debe indicar un nombre"/>
 			<p:message for="nombre" />
         </h:panelGroup>
-        
+       <b:column/>
         <h:panelGroup>
 			<p:outputLabel for="descripcion" value="Descripción:" />
-       		<p:inputTextarea rows="3" cols="25" id="descripcion" value="#{configuration.description}"></p:inputTextarea>
+       		<b:inputTextarea rows="3" cols="25" id="descripcion" value="#{configuration.description}"></b:inputTextarea>
 			<p:message for="descripcion" />
         </h:panelGroup>
 		
@@ -48,8 +48,8 @@
         </h:panelGroup>
         
         <h:panelGroup>
-       		<h:outputText value="Voto múltiple: " />
-       		<p:selectBooleanCheckbox value="#{configuration.multipleVoting}" />
+       		<h:outputLabel for="elCheck" value="Voto múltiple: " />
+       		<b:selectBooleanCheckbox id="elCheck" value="#{configuration.multipleVoting}" />
   		</h:panelGroup>
   		<h:form>
 	  		<h:panelGroup>
@@ -71,9 +71,11 @@
 				</ui:repeat>
 			</h:panelGroup>
 		</h:form>	
-		<p:commandButton value="Validar" action="#{configuration.configura}"
+		<b:commandButton value="Validar" actionListener="#{configuration.configura}"
 			update="@all" process="@form">
-		</p:commandButton>
-	</p:panelGrid>
+		</b:commandButton>
+	</b:panelGrid>
 	<p:separator />
+	<p:messages for="laInfo" showDetail="true" autoUpdate="true"
+			closable="true" />
 </ui:composition>

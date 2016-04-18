@@ -1,6 +1,6 @@
 package es.uniovi.asw.dbupdate.model;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -49,13 +49,13 @@ public class VotableOption {
 	@ManyToOne
 	private ConfigurationElection configurationElection;
 	@OneToMany(mappedBy="elementoVotable")
-	private Set<Vote> votos;
+	private List<Vote> votos;
 	
-	public Set<Vote> getVotos() {
+	public List<Vote> getVotos() {
 		return votos;
 	}
 
-	public void setVotos(Set<Vote> votos) {
+	public void setVotos(List<Vote> votos) {
 		this.votos = votos;
 	}
 

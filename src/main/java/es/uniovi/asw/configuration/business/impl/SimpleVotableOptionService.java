@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import es.uniovi.asw.configuration.business.VotableOptionService;
 import es.uniovi.asw.dbupdate.exception.PersistenceException;
+import es.uniovi.asw.dbupdate.model.ConfigurationElection;
 import es.uniovi.asw.dbupdate.model.VotableOption;
 import es.uniovi.asw.dbupdate.repositories.VotableOptionDAO;
 
