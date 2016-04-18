@@ -5,32 +5,45 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:b="http://bootsfaces.net/ui">
 	<p:panelGrid id="Grid" columns="2" cellpadding="5">
+	
+		<h:panelGroup>
+			<p:outputLabel for="nombre" value="Nombre:" />
+       		<p:inputText id="nombre" value="#{configuration.name}" required="true" 
+       		requiredMessage="Debe indicar un nombre"/>
+			<p:message for="nombre" />
+        </h:panelGroup>
+        
+        <h:panelGroup>
+			<p:outputLabel for="descripcion" value="Descripción:" />
+       		<p:inputTextarea rows="3" cols="25" id="descripcion" value="#{configuration.description}"></p:inputTextarea>
+			<p:message for="descripcion" />
+        </h:panelGroup>
 		
 		<h:panelGroup>
 			<p:outputLabel for="fechaInicioApp" value="Inicio periodo solicitud:" />
        		<p:calendar id="fechaInicioApp" value="#{configuration.applicationStart}" pattern="MM/dd/yyyy HH:mm:ss"
-        		required="true" requiredMessage="Debe indicar una fecha de inicio" />
+        		required="true" requiredMessage="Debe indicar una fecha de inicio" mindate ="#{configuration.hoy}"/>
 			<p:message for="fechaInicioApp" />
         </h:panelGroup>
         
         <h:panelGroup>
 			<p:outputLabel for="fechaFinApp" value="Fin periodo solicitud:" />
        		<p:calendar id="fechaFinApp" value="#{configuration.applicationEnd}" pattern="MM/dd/yyyy HH:mm:ss"
-       		 	required="true" requiredMessage="Debe indicar una fecha de fin" />
+       		 	required="true" requiredMessage="Debe indicar una fecha de fin" mindate ="#{configuration.hoy}"/>
 			<p:message for="fechaFinApp" />
         </h:panelGroup>
         
         <h:panelGroup>
 			<p:outputLabel for="fechaInicioVoto" value="Inicio elecciones:" />
        		<p:calendar id="fechaInicioVoto" value="#{configuration.votationStart}" pattern="MM/dd/yyyy HH:mm:ss"
-        		required="true" requiredMessage="Debe indicar una fecha de inicio" />
+        		required="true" requiredMessage="Debe indicar una fecha de inicio" mindate ="#{configuration.hoy}"/>
 			<p:message for="fechaInicioVoto" />
         </h:panelGroup>
         
         <h:panelGroup>
 			<p:outputLabel for="fechaFinVoto" value="Fin elecciones:" />
        		<p:calendar id="fechaFinVoto" value="#{configuration.votationEnd}" pattern="MM/dd/yyyy HH:mm:ss"
-       		 	required="true" requiredMessage="Debe indicar una fecha de fin" />
+       		 	required="true" requiredMessage="Debe indicar una fecha de fin" mindate ="#{configuration.hoy}"/>
 			<p:message for="fechaFinVoto" />
         </h:panelGroup>
         

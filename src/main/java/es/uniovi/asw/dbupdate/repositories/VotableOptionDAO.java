@@ -7,7 +7,7 @@ import es.uniovi.asw.dbupdate.model.User;
 import es.uniovi.asw.dbupdate.model.VotableOption;
 
 @Repository
-public interface VotableOptionDAO  extends CrudRepository<VotableOption, Long> { 
+public interface VotableOptionDAO extends CrudRepository<VotableOption, Long> { 
 
 	  
 }
