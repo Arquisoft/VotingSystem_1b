@@ -11,7 +11,7 @@ public class TelematicVoterTest {
 	
 	@Test
 	public void testTelematicVoter() {
-		User user = new User("Nombre", "Mail", "Nif", "CodigoColegio");
+		User user = new User("Nombre", "Mail", "Nif", null);
 		TelematicVoter tv = new TelematicVoter(user, false, null);
 		
 		assertEquals(user, tv.getUser());

@@ -30,7 +30,8 @@ public class BeanApplication {
 		this.password = password;
 	}
 	
-	public String apply(ConfigurationElection configurationElection){
+	public void apply(ConfigurationElection configurationElection){
+		boolean fail = false;
 		WebApplicationContext ctx =  FacesContextUtils.getWebApplicationContext(FacesContext.getCurrentInstance());
 		SimpleApplicationService sas = ctx.getBean(SimpleApplicationService.class);
 		
@@ -38,13 +39,13 @@ public class BeanApplication {
 			sas.saveApplication(email, password, configurationElection);
 		} catch (InvalidUserException e) {
 			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "", "Correo electronico y/o contraseña incorrectos");
-            FacesContext.getCurrentInstance().addMessage(null, msg);
+            FacesContext.getCurrentInstance().addMessage("form-cuerpo:all", msg);
+            fail = true;
 		}
-		
-		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "", "Voto telematico admitido");
-        FacesContext.getCurrentInstance().addMessage(null, msg);
-        
-		return null;
+		if(!fail){
+			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "", "Voto telematico admitido");
+	        FacesContext.getCurrentInstance().addMessage("form-cuerpo:all", msg);
+		}
 	}
 
 }

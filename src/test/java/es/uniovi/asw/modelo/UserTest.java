@@ -14,13 +14,13 @@ public class UserTest {
 
 	@Test
 	public void testBasicoUsuario() {
-		User u = new User("nombre", "mail", "nif", "codigo");
+		User u = new User("nombre", "mail", "nif", null);
 		u.setContrasena("123");
 		assertEquals("123", u.getContrasena());
 		assertEquals("nombre",u.getNombre());
 		assertEquals("mail",u.getMail());
 		assertEquals("nif",u.getNif());
-		assertEquals("codigo", u.getCodigoColegio());
+		assertEquals(null, u.getCodigoColegio());
 		
 		TelematicVoter t= new TelematicVoter(u, false, null);
 		List<TelematicVoter> lista= new ArrayList<TelematicVoter>();

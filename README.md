@@ -7,17 +7,29 @@ Voting System
 [![codecov.io](https://codecov.io/github/Arquisoft/VotingSystem_1b/coverage.svg?branch=master)](https://codecov.io/github/Arquisoft/VotingSystem_1b?branch=master)
 [![Sauce Test Status](https://saucelabs.com/buildstatus/SantiMA10?auth=2a20728ed2c204f2b3b860493620581f)](https://saucelabs.com/u/SantiMA10?auth=2a20728ed2c204f2b3b860493620581f)
 
-# Deploy
+# Descripción 
+VotingSystem_1b es un sistema de votación telemática que permite:
+* Configurar elecciones.
+* Solicitar voto telemático.
+* Votar telemáticamente a los votantes que lo haya solicitado.
+
+El sistema permite cargar los datos del censo para las votaciones mediante la herramienta [censuses_1b](https://github.com/Arquisoft/censuses_1b).
+
+# Despliegue
+## En la nube
+Simplemente hay que pulsar el botón o visitar [la versión de master ya desplegada](http://voting-system-1b.herokuapp.com).
+
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
+## Local
+Para un despligue local se necesita la **[base de datos HSQLDB](#URL)**, ejecutar el comando **mvn spring-boot:run** y entrar en la dirección [http://localhost:8080](http://localhost:8080) del navegador.
 
-# Authors
+# Test
+Para lanzar los test utilizamos una base de datos en memoria H2, por lo simplemente hay que ejecutar **mvn test**.
 
-* Jose Labra
+# Autores
+
 * Santiago Martín Agra - UO237040
 * David Sánchez Luis - UO237085
 * Xurxo García Vázquez - UO235241
-
-
-
-
+* Jose Labra

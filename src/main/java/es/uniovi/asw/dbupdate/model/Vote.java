@@ -26,6 +26,13 @@ public class Vote {
 
 	Vote(){ }
 
+	public Vote(Date fecha,VotableOption elementoVotable, int cantidad) {
+		super();
+		this.fecha = fecha;
+		this.elementoVotable = elementoVotable;
+		this.cantidad = cantidad;
+	}
+
 	public Vote(Date fecha, ElectoralCollege colegio,
 			VotableOption elementoVotable, int cantidad) {
 		super();
@@ -34,9 +41,7 @@ public class Vote {
 		this.elementoVotable = elementoVotable;
 		this.cantidad = cantidad;
 	}
-
-
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
