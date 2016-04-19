@@ -28,6 +28,9 @@ Puede descargarse desde [aqui](https://drive.google.com/open?id=0B-BDcJOyciIGekh
 # Test
 Para lanzar los test utilizamos una base de datos en memoria H2, por lo que simplemente hay que ejecutar **mvn test**.
 
+# Github Page
+[http://arquisoft.github.io/VotingSystem_1b/](http://arquisoft.github.io/VotingSystem_1b/)
+
 # Autores
 
 * Santiago Martín Agra - UO237040
