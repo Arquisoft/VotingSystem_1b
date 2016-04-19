@@ -6,6 +6,7 @@ Voting System
 [![Codacy Badge](https://api.codacy.com/project/badge/grade/43ec857abe7d4b70a0cc93f6a4cc4364)](https://www.codacy.com/app/jelabra/VotingSystem_1b)
 [![codecov.io](https://codecov.io/github/Arquisoft/VotingSystem_1b/coverage.svg?branch=master)](https://codecov.io/github/Arquisoft/VotingSystem_1b?branch=master)
 [![Sauce Test Status](https://saucelabs.com/buildstatus/SantiMA10?auth=2a20728ed2c204f2b3b860493620581f)](https://saucelabs.com/u/SantiMA10?auth=2a20728ed2c204f2b3b860493620581f)
+[![ViewOnHeroku](https://img.shields.io/badge/View%20on-Heroku-ff69b4.svg)](http://voting-system-1b.herokuapp.com)
 
 # Descripción 
 VotingSystem_1b es un sistema de votación telemática que permite:
